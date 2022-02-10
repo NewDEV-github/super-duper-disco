@@ -23,7 +23,7 @@ var spawn_4_beat = 0
 
 var lane = 0
 var rand = 0
-var note = load("res://Scenes/Note.tscn")
+var note = preload("res://Scenes/Note.tscn")
 var instance
 var notes_spawn = {
 	"36": {
@@ -134,7 +134,7 @@ func _on_Conductor_beat(position):
 	print(str(position))
 	song_position_in_beats = position
 	for i in notes_spawn:
-		if song_position_in_beats >= int(i):
+		if song_position_in_beats >= i.to_int():
 			if notes_spawn[i] == {"end": 0}:
 				Global.set_score(score)
 				Global.combo = max_combo
@@ -342,14 +342,14 @@ func ParseAudioAsStreamData(filepath):
 func _spawn_notes(to_spawn):
 	if to_spawn > 0:
 		lane = randi() % 3
-		instance = note.instance()
+		instance = note.instantiate()
 		instance.initialize(lane)
 		add_child(instance)
 	if to_spawn > 1:
 		while rand == lane:
 			rand = randi() % 3
 		lane = rand
-		instance = note.instance()
+		instance = note.instantiate()
 		instance.initialize(lane)
 		add_child(instance)
 		
