@@ -1,0 +1,16 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bw7wfvuyr0ala"
+path="res://.godot/imported/balkanica_mix_prezent_dla_brunona.mp3-196d554aebe31ad328588d27ec5d8ca0.mp3str"
+
+[deps]
+
+source_file="res://Sounds/balkanica_mix_prezent_dla_brunona.mp3"
+dest_files=["res://.godot/imported/balkanica_mix_prezent_dla_brunona.mp3-196d554aebe31ad328588d27ec5d8ca0.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,234 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://SongCreator/Main.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Conductor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sounds/song.ogg" type="AudioStream" id=3]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Conductor" parent="." instance=ExtResource( 2 )]
+stream = ExtResource( 3 )
+bpm = 115
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Position" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 201.0
+margin_bottom = 24.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/Position"]
+margin_top = 5.0
+margin_right = 90.0
+margin_bottom = 19.0
+text = "Song position:"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/Position"]
+margin_left = 94.0
+margin_right = 168.0
+margin_bottom = 24.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Measure" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 28.0
+margin_right = 201.0
+margin_bottom = 52.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/Measure"]
+margin_top = 5.0
+margin_right = 94.0
+margin_bottom = 19.0
+text = "Song measure:"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/Measure"]
+margin_left = 98.0
+margin_right = 172.0
+margin_bottom = 24.0
+min_value = 1.0
+max_value = 4.0
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bpm" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 56.0
+margin_right = 201.0
+margin_bottom = 80.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/Bpm"]
+margin_top = 5.0
+margin_right = 67.0
+margin_bottom = 19.0
+text = "Song BPM:"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/Bpm"]
+margin_left = 71.0
+margin_right = 145.0
+margin_bottom = 24.0
+min_value = 1.0
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayOffset" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 84.0
+margin_right = 201.0
+margin_bottom = 108.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/PlayOffset"]
+margin_top = 5.0
+margin_right = 123.0
+margin_bottom = 19.0
+text = "Song playing offset:"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/PlayOffset"]
+margin_left = 127.0
+margin_right = 201.0
+margin_bottom = 24.0
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+margin_top = 112.0
+margin_right = 201.0
+margin_bottom = 132.0
+text = "Play"
+
+[node name="AddNotesPopup" type="Button" parent="VBoxContainer"]
+margin_top = 136.0
+margin_right = 201.0
+margin_bottom = 156.0
+
+[node name="AddNotesPopup" type="WindowDialog" parent="."]
+visible = true
+margin_right = 202.0
+margin_bottom = 160.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AddNotesPopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartPosition" type="HBoxContainer" parent="AddNotesPopup/VBoxContainer"]
+margin_right = 202.0
+margin_bottom = 24.0
+
+[node name="Label" type="Label" parent="AddNotesPopup/VBoxContainer/StartPosition"]
+margin_top = 5.0
+margin_right = 89.0
+margin_bottom = 19.0
+text = "Start position:"
+
+[node name="SpinBox" type="SpinBox" parent="AddNotesPopup/VBoxContainer/StartPosition"]
+margin_left = 93.0
+margin_right = 167.0
+margin_bottom = 24.0
+
+[node name="Spawn1" type="HBoxContainer" parent="AddNotesPopup/VBoxContainer"]
+margin_top = 28.0
+margin_right = 202.0
+margin_bottom = 52.0
+
+[node name="Label" type="Label" parent="AddNotesPopup/VBoxContainer/Spawn1"]
+margin_top = 5.0
+margin_right = 56.0
+margin_bottom = 19.0
+text = "Spawn 1:"
+
+[node name="SpinBox" type="SpinBox" parent="AddNotesPopup/VBoxContainer/Spawn1"]
+margin_left = 60.0
+margin_right = 134.0
+margin_bottom = 24.0
+
+[node name="Spawn2" type="HBoxContainer" parent="AddNotesPopup/VBoxContainer"]
+margin_top = 56.0
+margin_right = 202.0
+margin_bottom = 80.0
+
+[node name="Label" type="Label" parent="AddNotesPopup/VBoxContainer/Spawn2"]
+margin_top = 5.0
+margin_right = 56.0
+margin_bottom = 19.0
+text = "Spawn 2:"
+
+[node name="SpinBox" type="SpinBox" parent="AddNotesPopup/VBoxContainer/Spawn2"]
+margin_left = 60.0
+margin_right = 134.0
+margin_bottom = 24.0
+
+[node name="Spawn3" type="HBoxContainer" parent="AddNotesPopup/VBoxContainer"]
+margin_top = 84.0
+margin_right = 202.0
+margin_bottom = 108.0
+
+[node name="Label" type="Label" parent="AddNotesPopup/VBoxContainer/Spawn3"]
+margin_top = 5.0
+margin_right = 56.0
+margin_bottom = 19.0
+text = "Spawn 3:"
+
+[node name="SpinBox" type="SpinBox" parent="AddNotesPopup/VBoxContainer/Spawn3"]
+margin_left = 60.0
+margin_right = 134.0
+margin_bottom = 24.0
+
+[node name="Spawn4" type="HBoxContainer" parent="AddNotesPopup/VBoxContainer"]
+margin_top = 112.0
+margin_right = 202.0
+margin_bottom = 136.0
+
+[node name="Label" type="Label" parent="AddNotesPopup/VBoxContainer/Spawn4"]
+margin_top = 5.0
+margin_right = 56.0
+margin_bottom = 19.0
+text = "Spawn 4:"
+
+[node name="SpinBox" type="SpinBox" parent="AddNotesPopup/VBoxContainer/Spawn4"]
+margin_left = 60.0
+margin_right = 134.0
+margin_bottom = 24.0
+
+[node name="AddNotes" type="Button" parent="AddNotesPopup/VBoxContainer"]
+margin_top = 140.0
+margin_right = 202.0
+margin_bottom = 160.0
+text = "Add"
+
+[connection signal="beat" from="Conductor" to="." method="_on_Conductor_beat"]
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="toggled" from="VBoxContainer/Play" to="." method="_on_Play_toggled"]
+[connection signal="pressed" from="VBoxContainer/AddNotesPopup" to="." method="_on_AddNotesPopup_pressed"]
+[connection signal="pressed" from="AddNotesPopup/VBoxContainer/AddNotes" to="." method="_on_AddNotes_pressed"]

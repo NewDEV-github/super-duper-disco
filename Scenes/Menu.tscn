@@ -1,0 +1,107 @@
+[gd_scene load_steps=15 format=3 uid="uid://b2ca1s6ply5n6"]
+
+[ext_resource type="Script" path="res://Scripts/Menu.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://6f1jc803ygs6" path="res://Sprites/ui/play_button/play1.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dbg70at6y7wbn" path="res://Sprites/ui/play_button/play2.png" id="3"]
+[ext_resource type="Font" path="res://Fonts/heartbit2x.tres" id="4"]
+[ext_resource type="Texture2D" uid="uid://dasmddmtwt4wp" path="res://Sprites/ui/slider.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://du783etlk0glr" path="res://Sprites/ui/slider_content.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://cgy3fncr7rv5l" path="res://Sprites/ui/slider_arrow2.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://bg66qkw7vahrw" path="res://Sprites/ui/slider_arrow1.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://ct5pnmqxfoq7d" path="res://Sprites/ui/test_button/test_button1.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://dghq88e7520kp" path="res://Sprites/ui/test_button/test_button2.png" id="10"]
+[ext_resource type="AudioStream" uid="uid://cg8vogde0wycb" path="res://Sounds/bell_ding.ogg" id="11"]
+[ext_resource type="Script" path="res://Scripts/SongSelector.gd" id="12"]
+
+[sub_resource type="StyleBoxTexture" id="1"]
+texture = ExtResource( "5" )
+region_rect = Rect2(0, 0, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="2"]
+texture = ExtResource( "6" )
+region_rect = Rect2(0, 0, 16, 16)
+expand_margin_right = 8.0
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( "1" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start_Button" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+texture_normal = ExtResource( "2" )
+texture_pressed = ExtResource( "2" )
+texture_hover = ExtResource( "3" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="."]
+visible = false
+theme_override_icons/grabber_highlight = ExtResource( "7" )
+theme_override_icons/grabber = ExtResource( "8" )
+theme_override_styles/slider = SubResource( "1" )
+theme_override_styles/grabber_area_highlight = SubResource( "2" )
+theme_override_styles/grabber_area = SubResource( "2" )
+max_value = 1.0
+step = 0.05
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+visible = false
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource( "4" )
+text = "sound"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource( "4" )
+text = "controls: arrows/wasd"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="."]
+visible = false
+texture_normal = ExtResource( "9" )
+texture_pressed = ExtResource( "9" )
+texture_hover = ExtResource( "10" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextureButton"]
+stream = ExtResource( "11" )
+
+[node name="SongSelector" type="ItemList" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.5
+offset_top = -135.5
+offset_right = 194.5
+offset_bottom = 135.5
+script = ExtResource( "12" )
+
+[connection signal="button_down" from="Start_Button" to="." method="_on_Start_Button_button_down"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="item_selected" from="SongSelector" to="SongSelector" method="_on_song_selector_item_selected"]
