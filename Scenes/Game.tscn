@@ -10,28 +10,34 @@
 [ext_resource type="PackedScene" uid="uid://dhaor4mvuup7c" path="res://Scenes/Conductor.tscn" id="8"]
 
 [node name="Game" type="Node2D"]
+scale = Vector2(3, 3)
 script = ExtResource( "6" )
 
 [node name="road" type="Sprite2D" parent="."]
+texture_filter = 3
 position = Vector2(100, 0)
 texture = ExtResource( "4" )
 centered = false
 
 [node name="ArrowUp" parent="." instance=ExtResource( "1" )]
+texture_filter = 3
 position = Vector2(160, 164)
 input = "up"
 
 [node name="ArrowLeft" parent="." instance=ExtResource( "1" )]
+texture_filter = 3
 position = Vector2(120, 164)
 frames = ExtResource( "2" )
 input = "left"
 
 [node name="ArrowButton" parent="." instance=ExtResource( "1" )]
+texture_filter = 3
 position = Vector2(200, 164)
 frames = ExtResource( "3" )
 input = "right"
 
 [node name="Label" type="Label" parent="."]
+texture_filter = 3
 theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
 theme_override_fonts/font = ExtResource( "7" )
 text = "0"
@@ -40,6 +46,7 @@ __meta__ = {
 }
 
 [node name="Combo" type="Label" parent="."]
+texture_filter = 3
 theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
 theme_override_fonts/font = ExtResource( "7" )
 __meta__ = {
