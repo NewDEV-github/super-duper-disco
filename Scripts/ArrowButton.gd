@@ -1,11 +1,11 @@
-extends AnimatedSprite2D
+extends AnimatedSprite
 
 var perfect = false
 var good = false
 var okay = false
 var current_note = null
 
-@export var input = ""
+export var input = ""
 
 
 func _unhandled_input(event):

@@ -1,14 +1,13 @@
 [remap]
 
-importer="oggvorbisstr"
+importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-uid="uid://cg8vogde0wycb"
-path="res://.godot/imported/bell_ding.ogg-f0d0e0f5f70963587f9395e11c38efd6.oggvorbisstr"
+path="res://.import/bell_ding.ogg-f0d0e0f5f70963587f9395e11c38efd6.oggstr"
 
 [deps]
 
 source_file="res://Sounds/bell_ding.ogg"
-dest_files=["res://.godot/imported/bell_ding.ogg-f0d0e0f5f70963587f9395e11c38efd6.oggvorbisstr"]
+dest_files=[ "res://.import/bell_ding.ogg-f0d0e0f5f70963587f9395e11c38efd6.oggstr" ]
 
 [params]
 

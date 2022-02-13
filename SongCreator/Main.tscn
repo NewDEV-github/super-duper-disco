@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource path="res://SongCreator/Main.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Conductor.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sounds/song.ogg" type="AudioStream" id=3]
+[ext_resource type="Script" path="res://SongCreator/Main.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dhaor4mvuup7c" path="res://Scenes/Conductor.tscn" id="2"]
+[ext_resource type="AudioStream" path="res://Songs/VeryNiceSong/song.ogg" id="3"]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0

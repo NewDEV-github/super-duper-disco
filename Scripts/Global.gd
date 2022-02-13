@@ -9,6 +9,7 @@ var okay = 0
 var missed = 0
 var grade = "NA"
 var current_game_config_path = "NA"
+
 func set_score(new):
 	score = new
 	if score > 250000:

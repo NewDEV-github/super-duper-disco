@@ -1,14 +1,13 @@
 [remap]
 
-importer="oggvorbisstr"
+importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-uid="uid://bcyifx3lpgvgc"
-path="res://.godot/imported/song.ogg-5534b76bb01b7d004af1f7764679469c.oggvorbisstr"
+path="res://.import/song.ogg-5534b76bb01b7d004af1f7764679469c.oggstr"
 
 [deps]
 
 source_file="res://Sounds/song.ogg"
-dest_files=["res://.godot/imported/song.ogg-5534b76bb01b7d004af1f7764679469c.oggvorbisstr"]
+dest_files=[ "res://.import/song.ogg-5534b76bb01b7d004af1f7764679469c.oggstr" ]
 
 [params]
 
