@@ -17,10 +17,16 @@ func _process_input():
 	move_direction = Vector2()
 	if Input.is_action_pressed("up"):
 		move_direction.y -= 1
-	if Input.is_action_pressed("down"):
+	if Input.is_action_pressed("up_2"):
+		move_direction.y -= 1
+	if Input.is_action_pressed("down_2"):
 		move_direction.y += 1
 	if Input.is_action_pressed("left"):
 		move_direction.x -= 1
+	if Input.is_action_pressed("left_2"):
+		move_direction.x -= 1
 	if Input.is_action_pressed("right"):
+		move_direction.x += 1
+	if Input.is_action_pressed("right_2"):
 		move_direction.x += 1
 	move_direction = move_direction.normalized()

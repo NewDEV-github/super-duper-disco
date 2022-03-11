@@ -10,6 +10,7 @@ export var input = ""
 
 func _unhandled_input(event):
 	if event.is_action(input):
+		print(input)
 		if event.is_action_pressed(input, false):
 			if current_note != null:
 				if perfect:

@@ -21,6 +21,12 @@ var notes_spawn = {
 		"spawn_3_beat": 1,
 		"spawn_4_beat": 1,
 	},
+	"57": {
+		"spawn_1_beat": 0,
+		"spawn_2_beat": 2,
+		"spawn_3_beat": 0,
+		"spawn_4_beat": 2,
+	},
 	"103": {
 		"spawn_1_beat": 0,
 		"spawn_2_beat": 0,

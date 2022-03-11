@@ -1,6 +1,6 @@
 extends Node2D
 
-
+var multi_mode = false
 var score = 0
 var combo = 0
 var great = 0

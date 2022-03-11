@@ -7,6 +7,12 @@ const DIST_TO_TARGET = TARGET_Y - SPAWN_Y
 const LEFT_LANE_SPAWN = Vector2(120, SPAWN_Y)
 const CENTRE_LANE_SPAWN = Vector2(160, SPAWN_Y)
 const RIGHT_LANE_SPAWN = Vector2(200, SPAWN_Y)
+const LEFT_LANE_SPAWN_MULTI_P1 = Vector2(50, SPAWN_Y)
+const LEFT_LANE_SPAWN_MULTI_P2 = Vector2(195, SPAWN_Y)
+const RIGHT_LANE_SPAWN_MULTI_P1 = Vector2(130, SPAWN_Y)
+const RIGHT_LANE_SPAWN_MULTI_P2 = Vector2(276, SPAWN_Y)
+const CENTRE_LANE_SPAWN_MULTI_P1 = Vector2(90, SPAWN_Y)
+const CENTRE_LANE_SPAWN_MULTI_P2 = Vector2(236, SPAWN_Y)
 
 var speed = 0
 var hit = false
@@ -26,20 +32,42 @@ func _physics_process(delta):
 		$Node2D.position.y -= speed * delta
 
 
-func initialize(lane):
-	if lane == 0:
-		$AnimatedSprite.frame = 0
-		position = LEFT_LANE_SPAWN
-	elif lane == 1:
-		$AnimatedSprite.frame = 1
-		position = CENTRE_LANE_SPAWN
-	elif lane == 2:
-		$AnimatedSprite.frame = 2
-		position = RIGHT_LANE_SPAWN
+func initialize(lane, player:int=0): #player number, leave 0 if not multi
+	if Global.multi_mode:
+		if lane == 0:
+			$AnimatedSprite.frame = 0
+			if player == 1:
+				position = LEFT_LANE_SPAWN_MULTI_P1
+			else:
+				position = LEFT_LANE_SPAWN_MULTI_P2
+		elif lane == 1:
+			$AnimatedSprite.frame = 1
+			if player == 1:
+				position = CENTRE_LANE_SPAWN_MULTI_P1
+			else:
+				position = CENTRE_LANE_SPAWN_MULTI_P2
+		elif lane == 2:
+			$AnimatedSprite.frame = 2
+			if player == 1:
+				position = RIGHT_LANE_SPAWN_MULTI_P1
+			else:
+				position = RIGHT_LANE_SPAWN_MULTI_P2
+		else:
+			printerr("Invalid lane set for note: " + str(lane))
+			return
 	else:
-		printerr("Invalid lane set for note: " + str(lane))
-		return
-	
+		if lane == 0:
+			$AnimatedSprite.frame = 0
+			position = LEFT_LANE_SPAWN
+		elif lane == 1:
+			$AnimatedSprite.frame = 1
+			position = CENTRE_LANE_SPAWN
+		elif lane == 2:
+			$AnimatedSprite.frame = 2
+			position = RIGHT_LANE_SPAWN
+		else:
+			printerr("Invalid lane set for note: " + str(lane))
+			return
 	speed = DIST_TO_TARGET / 2.0
 
 
