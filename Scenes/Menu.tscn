@@ -82,13 +82,19 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 96.0
-margin_top = 160.0
-margin_right = 232.0
-margin_bottom = 174.0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 93.0
+margin_top = 130.0
+margin_right = 229.0
+margin_bottom = 175.0
 custom_colors/font_color = Color( 0.964706, 0.839216, 0.741176, 1 )
 custom_fonts/font = ExtResource( 4 )
-text = "controls: arrows/wasd"
+text = "controls: 
+player one - wasd
+player two - arrows"
 align = 1
 valign = 1
 __meta__ = {
@@ -123,8 +129,51 @@ __meta__ = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextureButton"]
 stream = ExtResource( 11 )
 
+[node name="WindowDialog" type="WindowDialog" parent="."]
+visible = true
+margin_right = 212.0
+margin_bottom = 138.0
+window_title = "Select Game Mode"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WindowDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mode1" type="Button" parent="WindowDialog/VBoxContainer"]
+margin_right = 212.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+disabled = true
+text = "Separated notes"
+
+[node name="Mode2" type="Button" parent="WindowDialog/VBoxContainer"]
+margin_top = 47.0
+margin_right = 212.0
+margin_bottom = 90.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Randomized notes"
+
+[node name="Mode3" type="Button" parent="WindowDialog/VBoxContainer"]
+margin_top = 94.0
+margin_right = 212.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Duplicated notes"
+
 [connection signal="button_down" from="Start_Button" to="." method="_on_Start_Button_button_down"]
 [connection signal="pressed" from="Start_Button_MULTI" to="." method="_on_Start_Button_MULTI_pressed"]
 [connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]
 [connection signal="item_selected" from="SongSelector" to="SongSelector" method="_on_song_selector_item_selected"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="WindowDialog/VBoxContainer/Mode1" to="." method="_on_Mode1_pressed"]
+[connection signal="pressed" from="WindowDialog/VBoxContainer/Mode2" to="." method="_on_Mode2_pressed"]
+[connection signal="pressed" from="WindowDialog/VBoxContainer/Mode3" to="." method="_on_Mode3_pressed"]

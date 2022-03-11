@@ -19,16 +19,19 @@ centered = false
 
 [node name="ArrowUp" parent="." instance=ExtResource( 1 )]
 position = Vector2( 160, 164 )
+animation = "red"
 input = "up"
 
 [node name="ArrowLeft" parent="." instance=ExtResource( 1 )]
 position = Vector2( 120, 164 )
 frames = ExtResource( 2 )
+animation = "blue"
 input = "left"
 
 [node name="ArrowButton" parent="." instance=ExtResource( 1 )]
 position = Vector2( 200, 164 )
 frames = ExtResource( 3 )
+animation = "orange"
 input = "right"
 
 [node name="Label" type="Label" parent="."]

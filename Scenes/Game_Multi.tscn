@@ -19,16 +19,19 @@ centered = false
 
 [node name="ArrowUp" parent="." instance=ExtResource( 1 )]
 position = Vector2( 236, 163 )
+animation = "darkblue"
 input = "up_2"
 
 [node name="ArrowLeft" parent="." instance=ExtResource( 1 )]
 position = Vector2( 196, 163 )
 frames = ExtResource( 2 )
+animation = "pink"
 input = "left_2"
 
 [node name="ArrowButton" parent="." instance=ExtResource( 1 )]
 position = Vector2( 276, 163 )
 frames = ExtResource( 3 )
+animation = "yellowgreen"
 input = "right_2"
 
 [node name="road2" type="Sprite" parent="."]
@@ -38,16 +41,19 @@ centered = false
 
 [node name="ArrowUp2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 90, 164 )
+animation = "red"
 input = "up"
 
 [node name="ArrowLeft2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 50, 164 )
 frames = ExtResource( 2 )
+animation = "orange"
 input = "left"
 
 [node name="ArrowButton2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 130, 164 )
 frames = ExtResource( 3 )
+animation = "blue"
 input = "right"
 
 [node name="Label" type="Label" parent="."]

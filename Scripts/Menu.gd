@@ -17,8 +17,7 @@ func go_to_game(multi_mode:bool=false):
 		get_tree().change_scene("res://Scenes/Game.tscn")
 
 func _on_HSlider_value_changed(value):
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"),
-								linear2db(value))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(value))
 
 
 func _on_TextureButton_pressed():
@@ -26,4 +25,19 @@ func _on_TextureButton_pressed():
 
 
 func _on_Start_Button_MULTI_pressed():
+	$WindowDialog.popup_centered()
+
+
+func _on_Mode1_pressed(): #Separated notes
+	Global.multi_game_mode = Global.MultiGameModes.SeparatedNotes
+	go_to_game(true)
+
+
+func _on_Mode2_pressed(): #Randomized notes
+	Global.multi_game_mode = Global.MultiGameModes.RandomizedNotes
+	go_to_game(true)
+
+
+func _on_Mode3_pressed(): #Duplicated notes
+	Global.multi_game_mode = Global.MultiGameModes.DuplicatedNotes
 	go_to_game(true)

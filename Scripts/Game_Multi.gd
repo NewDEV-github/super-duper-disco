@@ -25,7 +25,7 @@ var lane = 0
 var rand = 0
 var note = load("res://Scenes/Note.tscn")
 var instance
-
+var instance2
 
 func _ready():
 	randomize()
@@ -82,23 +82,43 @@ func _on_Conductor_beat(position):
 
 
 func _spawn_notes(to_spawn):
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()
-	var player = rng.randi_range(0,2) #random player, haha
-#	print(player)
-	if to_spawn > 0:
-		lane = randi() % 3
-		instance = note.instance()
-		instance.initialize(lane, player)
-		add_child(instance)
-	if to_spawn > 1:
-		while rand == lane:
-			rand = randi() % 3
-		lane = rand
-		instance = note.instance()
-		instance.initialize(lane, player)
-		add_child(instance)
-		
+	match Global.multi_game_mode:
+		Global.MultiGameModes.RandomizedNotes:
+			var rng = RandomNumberGenerator.new()
+			rng.randomize()
+			var player = rng.randi_range(0,2) #random player, haha
+		#	print(player)
+			if to_spawn > 0:
+				lane = randi() % 3
+				instance = note.instance()
+				instance.initialize(lane, player)
+				add_child(instance)
+			if to_spawn > 1:
+				while rand == lane:
+					rand = randi() % 3
+				lane = rand
+				instance = note.instance()
+				instance.initialize(lane, player)
+				add_child(instance)
+		Global.MultiGameModes.DuplicatedNotes:
+			if to_spawn > 0:
+				lane = randi() % 3
+				instance = note.instance()
+				instance.initialize(lane, 1)
+				add_child(instance)
+				instance2 = note.instance()
+				instance2.initialize(lane, 2)
+				add_child(instance2)
+			if to_spawn > 1:
+				while rand == lane:
+					rand = randi() % 3
+				lane = rand
+				instance = note.instance()
+				instance.initialize(lane, 1)
+				add_child(instance)
+				instance2 = note.instance()
+				instance2.initialize(lane, 2)
+				add_child(instance2)
 
 
 func increment_score(by):
@@ -253,7 +273,8 @@ func report_errors(err, filepath):
 		ERR_FILE_UNRECOGNIZED: "File: Unrecognized error.",
 		ERR_FILE_CORRUPT: "File: Corrupt error.",
 		ERR_FILE_MISSING_DEPENDENCIES: "File: Missing dependencies error.",
-		ERR_FILE_EOF: "File: End of file (EOF) error."
+		ERR_FILE_EOF: "File: End of file (EOF) error.",
+		ERR_FILE_NO_PERMISSION: "Ruski okrecie, idi na hui"
 	}
 	if err in result_hash:
 		print("Error: ", result_hash[err], " ", filepath)

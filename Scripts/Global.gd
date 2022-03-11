@@ -1,5 +1,10 @@
 extends Node2D
-
+enum MultiGameModes {
+	SeparatedNotes = 0
+	RandomizedNotes = 1
+	DuplicatedNotes = 2
+}
+var multi_game_mode = MultiGameModes.DuplicatedNotes
 var multi_mode = false
 var score = 0
 var combo = 0
