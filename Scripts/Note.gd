@@ -72,8 +72,10 @@ func initialize(lane, player:int=0): #player number, leave 0 if not multi
 
 
 func destroy(score):
-	$CPUParticles2D.emitting = true
-	$AnimatedSprite.visible = false
+#	$CPUParticles2D.emitting = true
+#	$AnimatedSprite.visible = false
+	$AnimatedSprite.queue_free()
+	$CollisionShape2D.queue_free()
 	$Timer.start()
 	hit = true
 	if score == 3:

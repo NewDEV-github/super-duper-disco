@@ -3,6 +3,8 @@ extends Node2D
 var score = 0
 var combo = 0
 var notes_spawn = {}
+var notes_spawn_multi_1 = {}
+var notes_spawn_multi_2 = {}
 var max_combo = 0
 var great = 0
 var good = 0
@@ -20,6 +22,18 @@ var spawn_1_beat = 0
 var spawn_2_beat = 0
 var spawn_3_beat = 1
 var spawn_4_beat = 0
+
+
+var spawn_1_beat_p1 = 0
+var spawn_2_beat_p1 = 0
+var spawn_3_beat_p1 = 1
+var spawn_4_beat_p1 = 0
+
+var spawn_1_beat_p2 = 0
+var spawn_2_beat_p2 = 0
+var spawn_3_beat_p2 = 1
+var spawn_4_beat_p2 = 0
+
 
 var lane = 0
 var rand = 0
@@ -44,18 +58,34 @@ func load_song(script_path:String):
 	$Conductor.measures = s.measures #MAX 4
 	$Conductor.stream = ParseAudioAsStreamData(s.song_file_path)
 	notes_spawn = s.notes_spawn
+	notes_spawn_multi_1 = s.notes_spawn_multi_1
+	notes_spawn_multi_2 = s.notes_spawn_multi_2
 	end_song_position = int(s.end_song_position)
 	$Conductor.play_with_beat_offset(s.play_offset)
 
 func _on_Conductor_measure(position):
-	if position == 1:
-		_spawn_notes(spawn_1_beat)
-	elif position == 2:
-		_spawn_notes(spawn_2_beat)
-	elif position == 3:
-		_spawn_notes(spawn_3_beat)
-	elif position == 4:
-		_spawn_notes(spawn_4_beat)
+	if Global.multi_game_mode == Global.MultiGameModes.SeparatedNotes:
+			if position == 1:
+				_spawn_notes(spawn_1_beat_p1, 1)
+				_spawn_notes(spawn_1_beat_p2, 2)
+			elif position == 2:
+				_spawn_notes(spawn_2_beat_p1, 1)
+				_spawn_notes(spawn_2_beat_p2, 2)
+			elif position == 3:
+				_spawn_notes(spawn_3_beat_p1, 1)
+				_spawn_notes(spawn_3_beat_p2, 2)
+			elif position == 4:
+				_spawn_notes(spawn_4_beat_p1, 1)
+				_spawn_notes(spawn_4_beat_p2, 2)
+	else:
+		if position == 1:
+			_spawn_notes(spawn_1_beat)
+		elif position == 2:
+			_spawn_notes(spawn_2_beat)
+		elif position == 3:
+			_spawn_notes(spawn_3_beat)
+		elif position == 4:
+			_spawn_notes(spawn_4_beat)
 
 func _on_Conductor_beat(position):
 	print(str(position))
@@ -75,13 +105,24 @@ func _on_Conductor_beat(position):
 				if get_tree().change_scene("res://Scenes/End.tscn") != OK:
 					print("Error changing scene to End")
 			else:
-				spawn_1_beat = int(notes_spawn[i]["spawn_1_beat"])
-				spawn_2_beat = int(notes_spawn[i]["spawn_2_beat"])
-				spawn_3_beat = int(notes_spawn[i]["spawn_3_beat"])
-				spawn_4_beat = int(notes_spawn[i]["spawn_4_beat"])
+				if Global.multi_game_mode == Global.MultiGameModes.SeparatedNotes:
+					spawn_1_beat_p1 = int(notes_spawn_multi_1[i]["spawn_1_beat"])
+					spawn_2_beat_p1 = int(notes_spawn_multi_1[i]["spawn_2_beat"])
+					spawn_3_beat_p1 = int(notes_spawn_multi_1[i]["spawn_3_beat"])
+					spawn_4_beat_p1 = int(notes_spawn_multi_1[i]["spawn_4_beat"])
+					spawn_1_beat_p2 = int(notes_spawn_multi_2[i]["spawn_1_beat"])
+					spawn_2_beat_p2 = int(notes_spawn_multi_2[i]["spawn_2_beat"])
+					spawn_3_beat_p2 = int(notes_spawn_multi_2[i]["spawn_3_beat"])
+					spawn_4_beat_p2 = int(notes_spawn_multi_2[i]["spawn_4_beat"])
+				else:
+					spawn_1_beat = int(notes_spawn[i]["spawn_1_beat"])
+					spawn_2_beat = int(notes_spawn[i]["spawn_2_beat"])
+					spawn_3_beat = int(notes_spawn[i]["spawn_3_beat"])
+					spawn_4_beat = int(notes_spawn[i]["spawn_4_beat"])
+					
 
 
-func _spawn_notes(to_spawn):
+func _spawn_notes(to_spawn, player_number:int=0):
 	match Global.multi_game_mode:
 		Global.MultiGameModes.RandomizedNotes:
 			var rng = RandomNumberGenerator.new()
@@ -118,6 +159,25 @@ func _spawn_notes(to_spawn):
 				add_child(instance)
 				instance2 = note.instance()
 				instance2.initialize(lane, 2)
+				add_child(instance2)
+		Global.MultiGameModes.SeparatedNotes:
+			if to_spawn > 0:
+				lane = randi() % 3
+				instance = note.instance()
+				instance.initialize(lane, player_number)
+				add_child(instance)
+				instance2 = note.instance()
+				instance2.initialize(lane, player_number)
+				add_child(instance2)
+			if to_spawn > 1:
+				while rand == lane:
+					rand = randi() % 3
+				lane = rand
+				instance = note.instance()
+				instance.initialize(lane, player_number)
+				add_child(instance)
+				instance2 = note.instance()
+				instance2.initialize(lane, player_number)
 				add_child(instance2)
 
 

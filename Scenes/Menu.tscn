@@ -131,8 +131,9 @@ stream = ExtResource( 11 )
 
 [node name="WindowDialog" type="WindowDialog" parent="."]
 visible = true
-margin_right = 212.0
-margin_bottom = 138.0
+margin_right = 234.0
+margin_bottom = 145.0
+rect_scale = Vector2( 0.5, 0.5 )
 window_title = "Select Game Mode"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -146,25 +147,24 @@ __meta__ = {
 }
 
 [node name="Mode1" type="Button" parent="WindowDialog/VBoxContainer"]
-margin_right = 212.0
-margin_bottom = 43.0
+margin_right = 234.0
+margin_bottom = 45.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-disabled = true
 text = "Separated notes"
 
 [node name="Mode2" type="Button" parent="WindowDialog/VBoxContainer"]
-margin_top = 47.0
-margin_right = 212.0
-margin_bottom = 90.0
+margin_top = 49.0
+margin_right = 234.0
+margin_bottom = 95.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Randomized notes"
 
 [node name="Mode3" type="Button" parent="WindowDialog/VBoxContainer"]
-margin_top = 94.0
-margin_right = 212.0
-margin_bottom = 138.0
+margin_top = 99.0
+margin_right = 234.0
+margin_bottom = 145.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Duplicated notes"

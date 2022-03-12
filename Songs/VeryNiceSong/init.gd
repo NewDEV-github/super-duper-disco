@@ -80,15 +80,15 @@ var notes_spawn = {
 }
 var notes_spawn_multi_1 = {
 	"36": {
-		"spawn_1_beat": 1,
-		"spawn_2_beat": 1,
+		"spawn_1_beat": 0,
+		"spawn_2_beat": 0,
 		"spawn_3_beat": 1,
 		"spawn_4_beat": 1,
 	},
 	"98": {
-		"spawn_1_beat": 2,
+		"spawn_1_beat": 0,
 		"spawn_2_beat": 0,
-		"spawn_3_beat": 1,
+		"spawn_3_beat": 0,
 		"spawn_4_beat": 0,
 	},
 	"132": {
@@ -151,8 +151,8 @@ var notes_spawn_multi_2 = {
 	"36": {
 		"spawn_1_beat": 1,
 		"spawn_2_beat": 1,
-		"spawn_3_beat": 1,
-		"spawn_4_beat": 1,
+		"spawn_3_beat": 0,
+		"spawn_4_beat": 0,
 	},
 	"98": {
 		"spawn_1_beat": 2,
@@ -162,9 +162,9 @@ var notes_spawn_multi_2 = {
 	},
 	"132": {
 		"spawn_1_beat": 0,
-		"spawn_2_beat": 2,
+		"spawn_2_beat": 0,
 		"spawn_3_beat": 0,
-		"spawn_4_beat": 2,
+		"spawn_4_beat": 0,
 	},
 	"162": {
 		"spawn_1_beat": 2,

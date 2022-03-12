@@ -38,6 +38,7 @@ wait_time = 0.3
 one_shot = true
 
 [node name="Node2D" type="Node2D" parent="."]
+scale = Vector2( 5, 5 )
 
 [node name="Label" type="Label" parent="Node2D"]
 anchor_right = 0.046
