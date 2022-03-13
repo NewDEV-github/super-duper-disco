@@ -25,13 +25,13 @@ margin_bottom = 298.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Player2" type="CenterContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="Player1" type="CenterContainer" parent="VBoxContainer/HBoxContainer"]
 margin_right = 510.0
 margin_bottom = 298.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Player2"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Player1"]
 margin_left = 172.0
 margin_top = 45.0
 margin_right = 337.0
@@ -47,14 +47,14 @@ Good notes:
 Okay notes:
 Missed notes:"
 
-[node name="Player1" type="CenterContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="Player2" type="CenterContainer" parent="VBoxContainer/HBoxContainer"]
 margin_left = 514.0
 margin_right = 1024.0
 margin_bottom = 298.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Player1"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Player2"]
 margin_left = 172.0
 margin_top = 45.0
 margin_right = 337.0

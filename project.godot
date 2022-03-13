@@ -14,7 +14,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="2-Button-2019"
+config/name="SUPER DUPER DISCO"
 run/main_scene="res://Scenes/Menu.tscn"
 config/icon="res://icon.png"
 

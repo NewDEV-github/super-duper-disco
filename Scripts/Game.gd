@@ -8,7 +8,7 @@ var great = 0
 var good = 0
 var okay = 0
 var missed = 0
-
+var end_song_position = 404
 var bpm = 115
 
 var song_position = 0.0
@@ -44,6 +44,7 @@ func load_song(script_path:String):
 	$Conductor.measures = s.measures #MAX 4
 	$Conductor.stream = ParseAudioAsStreamData(s.song_file_path)
 	notes_spawn = s.notes_spawn
+	end_song_position = int(s.end_song_position)
 	$Conductor.play_with_beat_offset(s.play_offset)
 
 func _on_Conductor_measure(position):
@@ -61,8 +62,8 @@ func _on_Conductor_beat(position):
 #	$Position.text = "Song position: " + str(position)
 	song_position_in_beats = position
 	for i in notes_spawn:
-		if song_position_in_beats >= i.to_int():
-			if notes_spawn[i] == {"end": 0}:
+		if song_position_in_beats >= int(i):
+			if int(i) == int(end_song_position):
 				Global.set_score(score)
 				Global.combo = max_combo
 				Global.great = great
