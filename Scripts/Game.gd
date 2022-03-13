@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var score = 0
 var combo = 0
@@ -58,7 +58,7 @@ func _on_Conductor_measure(position):
 
 func _on_Conductor_beat(position):
 	print(str(position))
-	$Position.text = "Song position: " + str(position)
+#	$Position.text = "Song position: " + str(position)
 	song_position_in_beats = position
 	for i in notes_spawn:
 		if song_position_in_beats >= i.to_int():
@@ -111,18 +111,18 @@ func increment_score(by, player_number:int=0):
 	
 	
 	score += by * combo
-	$Label.text = str(score)
+	$PlayersUI/Player1/combo_and_score/score_p1.text = str(score)
 	if combo > 0:
-		$Combo.text = str(combo) + " combo!"
+		$PlayersUI/Player1/combo_and_score/combo_p1.text = str(combo) + " combo!"
 		if combo > max_combo:
 			max_combo = combo
 	else:
-		$Combo.text = ""
+		$PlayersUI/Player1/combo_and_score/combo_p1.text = ""
 
 
-func reset_combo():
+func reset_combo(player:int=0):
 	combo = 0
-	$Combo.text = ""
+	$PlayersUI/Player1/combo_and_score/combo_p1.text = ""
 
 func ParseAudioAsStreamData(filepath):
 	print("AUDIO AT: " + filepath)

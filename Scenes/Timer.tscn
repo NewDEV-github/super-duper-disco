@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Timer.gd" type="Script" id=1]
+
+[node name="Label" type="Label"]
+margin_right = 40.0
+margin_bottom = 14.0
+align = 1
+valign = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ms" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="ms" to="." method="_on_ms_timeout"]

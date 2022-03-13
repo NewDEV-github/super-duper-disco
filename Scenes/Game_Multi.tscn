@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/ArrowButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Frames/arrow_left_frames.tres" type="SpriteFrames" id=2]
@@ -6,111 +6,85 @@
 [ext_resource path="res://Sprites/game/road/road.png" type="Texture" id=4]
 [ext_resource path="res://Sounds/song.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Scripts/Game_Multi.gd" type="Script" id=6]
-[ext_resource path="res://Fonts/heartbit2x.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Scenes/Timer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Conductor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://kenneyUI-yellow.tres" type="Theme" id=9]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 9 )
 script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" parent="." instance=ExtResource( 7 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_top = 10.0
+margin_right = 20.0
+margin_bottom = 18.0
 
 [node name="road" type="Sprite" parent="."]
-position = Vector2( 176, -1 )
+position = Vector2( 650, 0 )
+scale = Vector2( 2, 3.333 )
 texture = ExtResource( 4 )
 centered = false
 
 [node name="ArrowUp" parent="." instance=ExtResource( 1 )]
-position = Vector2( 236, 163 )
+position = Vector2( 770, 540 )
+scale = Vector2( 0.3, 0.3 )
 animation = "darkblue"
 input = "up_2"
 
 [node name="ArrowLeft" parent="." instance=ExtResource( 1 )]
-position = Vector2( 196, 163 )
+position = Vector2( 690, 540 )
+scale = Vector2( 0.3, 0.3 )
 frames = ExtResource( 2 )
 animation = "pink"
 input = "left_2"
 
 [node name="ArrowButton" parent="." instance=ExtResource( 1 )]
-position = Vector2( 276, 163 )
+position = Vector2( 850, 540 )
+scale = Vector2( 0.3, 0.3 )
 frames = ExtResource( 3 )
 animation = "yellowgreen"
 input = "right_2"
 
 [node name="road2" type="Sprite" parent="."]
-position = Vector2( 30, 0 )
+position = Vector2( 140, 0 )
+scale = Vector2( 2, 3.333 )
 texture = ExtResource( 4 )
 centered = false
 
 [node name="ArrowUp2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 90, 164 )
+position = Vector2( 260, 540 )
+scale = Vector2( 0.3, 0.3 )
 animation = "red"
 input = "up"
 
 [node name="ArrowLeft2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 50, 164 )
+position = Vector2( 181, 540 )
+scale = Vector2( 0.3, 0.3 )
 frames = ExtResource( 2 )
 animation = "orange"
 input = "left"
 
 [node name="ArrowButton2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 130, 164 )
+position = Vector2( 340, 540 )
+scale = Vector2( 0.3, 0.3 )
 frames = ExtResource( 3 )
 animation = "blue"
 input = "right"
 
-[node name="score_p1" type="Label" parent="."]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 48.0
-margin_bottom = 22.0
-custom_colors/font_color = Color( 0.964706, 0.839216, 0.741176, 1 )
-custom_fonts/font = ExtResource( 7 )
-text = "0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="score_p2" type="Label" parent="."]
-margin_left = 185.0
-margin_top = 6.0
-margin_right = 225.0
-margin_bottom = 20.0
-custom_colors/font_color = Color( 0.964706, 0.839216, 0.741176, 1 )
-custom_fonts/font = ExtResource( 7 )
-text = "0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="combo_p1" type="Label" parent="."]
-margin_left = -1.0
-margin_top = 26.0
-margin_right = 91.0
-margin_bottom = 40.0
-custom_colors/font_color = Color( 0.964706, 0.839216, 0.741176, 1 )
-custom_fonts/font = ExtResource( 7 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="combo_p2" type="Label" parent="."]
-margin_left = 178.0
-margin_top = 24.0
-margin_right = 270.0
-margin_bottom = 38.0
-custom_colors/font_color = Color( 0.964706, 0.839216, 0.741176, 1 )
-custom_fonts/font = ExtResource( 7 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Position" type="Label" parent="."]
+visible = false
 margin_left = 4.0
 margin_top = 20.0
 margin_right = 96.0
 margin_bottom = 34.0
-custom_colors/font_color = Color( 0.964706, 0.839216, 0.741176, 1 )
-custom_fonts/font = ExtResource( 7 )
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -120,6 +94,102 @@ __meta__ = {
 stream = ExtResource( 5 )
 volume_db = -15.0
 bpm = 115
+
+[node name="PlayersUI" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Player1" type="Control" parent="PlayersUI"]
+margin_right = 510.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="combo_and_score" type="VBoxContainer" parent="PlayersUI/Player1"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="score_p1" type="Label" parent="PlayersUI/Player1/combo_and_score"]
+margin_right = 25.0
+margin_bottom = 18.0
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="combo_p1" type="Label" parent="PlayersUI/Player1/combo_and_score"]
+margin_top = 22.0
+margin_right = 25.0
+margin_bottom = 40.0
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PlayersUI/Player1"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -44.5
+margin_top = 10.0
+margin_right = 44.5
+margin_bottom = 18.0
+text = "player 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player2" type="Control" parent="PlayersUI"]
+margin_left = 514.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="combo_and_score" type="VBoxContainer" parent="PlayersUI/Player2"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -117.0
+margin_top = 15.0
+margin_right = -15.0
+margin_bottom = 71.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="score_p2" type="Label" parent="PlayersUI/Player2/combo_and_score"]
+margin_right = 102.0
+margin_bottom = 18.0
+text = "0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="combo_p2" type="Label" parent="PlayersUI/Player2/combo_and_score"]
+margin_top = 22.0
+margin_right = 102.0
+margin_bottom = 40.0
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PlayersUI/Player2"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -47.5
+margin_top = 10.0
+margin_right = 47.5
+margin_bottom = 18.0
+text = "PLAYER 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="beat" from="Conductor" to="." method="_on_Conductor_beat"]
 [connection signal="measure" from="Conductor" to="." method="_on_Conductor_measure"]

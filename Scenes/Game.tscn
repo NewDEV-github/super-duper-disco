@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/ArrowButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Frames/arrow_left_frames.tres" type="SpriteFrames" id=2]
@@ -8,57 +8,46 @@
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=6]
 [ext_resource path="res://Fonts/heartbit2x.tres" type="DynamicFont" id=7]
 [ext_resource path="res://Scenes/Conductor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://kenneyUI-yellow.tres" type="Theme" id=9]
+[ext_resource path="res://Scenes/Timer.tscn" type="PackedScene" id=10]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 9 )
 script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="road" type="Sprite" parent="."]
-position = Vector2( 100, 0 )
+position = Vector2( 393, 0 )
+scale = Vector2( 2, 3.333 )
 texture = ExtResource( 4 )
 centered = false
 
 [node name="ArrowUp" parent="." instance=ExtResource( 1 )]
-position = Vector2( 160, 164 )
+position = Vector2( 513, 540 )
+scale = Vector2( 0.3, 0.3 )
 animation = "red"
 input = "up"
 
 [node name="ArrowLeft" parent="." instance=ExtResource( 1 )]
-position = Vector2( 120, 164 )
+position = Vector2( 433, 540 )
+scale = Vector2( 0.3, 0.3 )
 frames = ExtResource( 2 )
 animation = "blue"
 input = "left"
 
 [node name="ArrowButton" parent="." instance=ExtResource( 1 )]
-position = Vector2( 200, 164 )
+position = Vector2( 592, 540 )
+scale = Vector2( 0.3, 0.3 )
 frames = ExtResource( 3 )
 animation = "orange"
 input = "right"
 
-[node name="Label" type="Label" parent="."]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 44.0
-margin_bottom = 18.0
-custom_colors/font_color = Color( 0.964706, 0.839216, 0.741176, 1 )
-custom_fonts/font = ExtResource( 7 )
-text = "0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Combo" type="Label" parent="."]
-margin_left = 4.0
-margin_top = 20.0
-margin_right = 96.0
-margin_bottom = 34.0
-custom_colors/font_color = Color( 0.964706, 0.839216, 0.741176, 1 )
-custom_fonts/font = ExtResource( 7 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Position" type="Label" parent="."]
+visible = false
 margin_left = 4.0
 margin_top = 20.0
 margin_right = 96.0
@@ -74,6 +63,50 @@ __meta__ = {
 stream = ExtResource( 5 )
 volume_db = -15.0
 bpm = 115
+
+[node name="PlayersUI" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Player1" type="Control" parent="PlayersUI"]
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="combo_and_score" type="VBoxContainer" parent="PlayersUI/Player1"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="score_p1" type="Label" parent="PlayersUI/Player1/combo_and_score"]
+margin_right = 25.0
+margin_bottom = 18.0
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="combo_p1" type="Label" parent="PlayersUI/Player1/combo_and_score"]
+margin_top = 22.0
+margin_right = 25.0
+margin_bottom = 40.0
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" parent="." instance=ExtResource( 10 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_top = 10.0
+margin_right = 20.0
+margin_bottom = 18.0
 
 [connection signal="beat" from="Conductor" to="." method="_on_Conductor_beat"]
 [connection signal="measure" from="Conductor" to="." method="_on_Conductor_measure"]

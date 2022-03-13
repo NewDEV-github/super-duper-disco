@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var score = 0
 var score_p2 = 0
@@ -11,10 +11,14 @@ var notes_spawn_multi_1 = {}
 var notes_spawn_multi_2 = {}
 var max_combo_p1 = 0
 var max_combo_p2 = 0
-var great = 0
-var good = 0
-var okay = 0
-var missed = 0
+var great_p2 = 0
+var good_p2 = 0
+var okay_p2 = 0
+var missed_p2 = 0
+var great_p1 = 0
+var good_p1 = 0
+var okay_p1 = 0
+var missed_p1 = 0
 var end_song_position = 0
 var bpm = 115
 
@@ -56,7 +60,21 @@ func _input(event):
 	if event.is_action("escape"):
 		if get_tree().change_scene("res://Scenes/Menu.tscn") != OK:
 			print ("Error changing scene to Menu")
-
+	if event.is_action_pressed("go_to_end_test"): #Shift + Ctrl + Alt + E
+		Global.set_score_p1(score_p1)
+		Global.set_score_p2(score_p2)
+		Global.combo_p1 = max_combo_p1
+		Global.combo_p2 = max_combo_p2
+		Global.great_p1 = great_p1
+		Global.great_p2 = great_p2
+		Global.good_p1 = good_p2
+		Global.good_p2 = good_p2
+		Global.okay_p1 = okay_p1
+		Global.okay_p2 = okay_p2
+		Global.missed_p1 = missed_p1
+		Global.missed_p2 = missed_p2
+		if get_tree().change_scene("res://Scenes/End_Multi.tscn") != OK:
+			print("Error changing scene to End")
 func load_song(script_path:String):
 	var s = load(script_path).new()
 	$Conductor.bpm = s.bpm
@@ -101,14 +119,19 @@ func _on_Conductor_beat(position):
 		
 		if song_position_in_beats >= int(i):
 			if int(i) == int(end_song_position):
-				Global.set_score(score)
+				Global.set_score_p1(score_p1)
+				Global.set_score_p2(score_p2)
 				Global.combo_p1 = max_combo_p1
 				Global.combo_p2 = max_combo_p2
-				Global.great = great
-				Global.good = good
-				Global.okay = okay
-				Global.missed = missed
-				if get_tree().change_scene("res://Scenes/End.tscn") != OK:
+				Global.great_p1 = great_p1
+				Global.great_p2 = great_p2
+				Global.good_p1 = good_p2
+				Global.good_p2 = good_p2
+				Global.okay_p1 = okay_p1
+				Global.okay_p2 = okay_p2
+				Global.missed_p1 = missed_p1
+				Global.missed_p2 = missed_p2
+				if get_tree().change_scene("res://Scenes/End_Multi.tscn") != OK:
 					print("Error changing scene to End")
 			else:
 				if Global.multi_game_mode == Global.MultiGameModes.SeparatedNotes:
@@ -198,38 +221,47 @@ func increment_score(by, player_number:int=0):
 		combo_p1 = 0
 		combo_p2 = 0
 	print(player_number)
-	if by == 3:
-		great += 1
-	elif by == 2:
-		good += 1
-	elif by == 1:
-		okay += 1
-	else:
-		missed += 1
-	
+	if player_number == 1:
+		if by == 3:
+			great_p1 += 1
+		elif by == 2:
+			good_p1 += 1
+		elif by == 1:
+			okay_p1 += 1
+		else:
+			missed_p1 += 1
+	elif player_number == 2:
+		if by == 3:
+			great_p2 += 1
+		elif by == 2:
+			good_p2 += 1
+		elif by == 1:
+			okay_p2 += 1
+		else:
+			missed_p2 += 1
 	if player_number == 0:
 		score += by * combo
 		$Label.text = str(score)
 	elif player_number == 1:
 		score_p1 += by *combo_p1
-		$score_p1.text = str(score_p1)
+		$PlayersUI/Player1/combo_and_score/score_p1.text = str(score_p1)
 	elif player_number == 2:
 		score_p2 += by*combo_p2
-		$score_p2.text = str(score_p2)
+		$PlayersUI/Player2/combo_and_score/score_p2.text = str(score_p2)
 	if combo_p1 > 0:
-		$combo_p1.text = str(combo_p1) + " combo!"
+		$PlayersUI/Player1/combo_and_score/combo_p1.text = str(combo_p1) + " combo!"
 		if combo_p1 > max_combo_p1:
 			max_combo_p1 = combo_p1
 	if combo_p2 > 0:
-		$combo_p2.text = str(combo_p2) + " combo!"
+		$PlayersUI/Player2/combo_and_score/combo_p2.text = str(combo_p2) + " combo!"
 		if combo_p2 > max_combo_p2:
 			max_combo_p2 = combo_p2
 	else:
 #		$Combo.text = ""
 		if player_number == 1:
-			$combo_p1.text = ""
+			$PlayersUI/Player1/combo_and_score/combo_p1.text = ""
 		elif player_number == 2:
-			$combo_p2.text = ""
+			$PlayersUI/Player2/combo_and_score/combo_p2.text = ""
 
 
 func reset_combo(player:int=0):
@@ -237,10 +269,10 @@ func reset_combo(player:int=0):
 		combo = 0
 	elif player == 1:
 		combo_p1 = 0
-		$combo_p1.text = ""
+		$PlayersUI/Player1/combo_and_score/combo_p1.text = ""
 	elif player == 2:
 		combo_p2 = 0
-		$combo_p2.text = ""
+		$PlayersUI/Player2/combo_and_score/combo_p2.text = ""
 
 func ParseAudioAsStreamData(filepath):
 	print("AUDIO AT: " + filepath)

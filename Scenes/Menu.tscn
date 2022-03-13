@@ -1,82 +1,16 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/ui/play_button/play1.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/ui/play_button/play2.png" type="Texture" id=3]
-[ext_resource path="res://Fonts/heartbit2x.tres" type="DynamicFont" id=4]
-[ext_resource path="res://Sprites/ui/slider.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/ui/slider_content.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/ui/slider_arrow2.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/ui/slider_arrow1.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/ui/test_button/test_button1.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/ui/test_button/test_button2.png" type="Texture" id=10]
+[ext_resource path="res://kenneyUI-yellow.tres" type="Theme" id=2]
+[ext_resource path="res://monka_giga_font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Sounds/bell_ding.ogg" type="AudioStream" id=11]
 [ext_resource path="res://Scripts/SongSelector.gd" type="Script" id=12]
 
-[sub_resource type="StyleBoxTexture" id=1]
-texture = ExtResource( 5 )
-region_rect = Rect2( 0, 0, 32, 16 )
-
-[sub_resource type="StyleBoxTexture" id=2]
-texture = ExtResource( 6 )
-region_rect = Rect2( 0, 0, 16, 16 )
-expand_margin_right = 8.0
-
-[node name="Menu" type="Node2D"]
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
 script = ExtResource( 1 )
-
-[node name="Start_Button" type="TextureButton" parent="."]
-margin_left = 28.0
-margin_top = 66.0
-margin_right = 156.0
-margin_bottom = 114.0
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 2 )
-texture_hover = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Start_Button_MULTI" type="TextureButton" parent="."]
-margin_left = 167.0
-margin_top = 66.0
-margin_right = 295.0
-margin_bottom = 114.0
-rect_pivot_offset = Vector2( -99, 1 )
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 2 )
-texture_hover = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HSlider" type="HSlider" parent="."]
-margin_left = 256.0
-margin_top = 8.0
-margin_right = 312.0
-margin_bottom = 24.0
-custom_icons/grabber_highlight = ExtResource( 7 )
-custom_icons/grabber = ExtResource( 8 )
-custom_styles/slider = SubResource( 1 )
-custom_styles/grabber_area_highlight = SubResource( 2 )
-custom_styles/grabber_area = SubResource( 2 )
-max_value = 1.0
-step = 0.05
-value = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="."]
-margin_left = 216.0
-margin_top = 8.0
-margin_right = 256.0
-margin_bottom = 22.0
-custom_colors/font_color = Color( 0.964706, 0.839216, 0.741176, 1 )
-custom_fonts/font = ExtResource( 4 )
-text = "sound"
-align = 1
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -86,15 +20,12 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 93.0
-margin_top = 130.0
-margin_right = 229.0
-margin_bottom = 175.0
-custom_colors/font_color = Color( 0.964706, 0.839216, 0.741176, 1 )
-custom_fonts/font = ExtResource( 4 )
+margin_left = -109.0
+margin_top = -84.0
+margin_right = 109.0
 text = "controls: 
-player one - wasd
-player two - arrows"
+player 1 - wasd
+player 2 - arrows"
 align = 1
 valign = 1
 __meta__ = {
@@ -114,26 +45,90 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton" type="TextureButton" parent="."]
-margin_left = 259.728
-margin_top = 24.712
-margin_right = 307.728
-margin_bottom = 42.712
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 9 )
-texture_hover = ExtResource( 10 )
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -21.0
+margin_bottom = 21.0
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextureButton"]
+[node name="Start_Button" type="Button" parent="HBoxContainer"]
+margin_left = 345.0
+margin_right = 514.324
+margin_bottom = 42.251
+text = "singleplayer"
+
+[node name="Start_Button_MULTI" type="Button" parent="HBoxContainer"]
+margin_left = 518.0
+margin_right = 678.324
+margin_bottom = 42.251
+rect_pivot_offset = Vector2( -99, 1 )
+text = "multiplayer"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -276.0
+margin_top = 15.0
+margin_right = -15.0
+margin_bottom = 102.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 261.0
+margin_bottom = 42.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+margin_top = 12.0
+margin_right = 65.0
+margin_bottom = 30.0
+text = "sound"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 69.0
+margin_right = 261.0
+margin_bottom = 42.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="Button" parent="VBoxContainer"]
+margin_left = 93.0
+margin_top = 46.0
+margin_right = 166.324
+margin_bottom = 88.251
+size_flags_horizontal = 4
+text = "Test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer/TextureButton"]
 stream = ExtResource( 11 )
 
 [node name="WindowDialog" type="WindowDialog" parent="."]
-visible = true
-margin_right = 234.0
-margin_bottom = 145.0
-rect_scale = Vector2( 0.5, 0.5 )
+margin_left = 393.0
+margin_top = 111.0
+margin_right = 685.0
+margin_bottom = 302.0
 window_title = "Select Game Mode"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -142,38 +137,63 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="WindowDialog"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Mode1" type="Button" parent="WindowDialog/VBoxContainer"]
-margin_right = 234.0
-margin_bottom = 45.0
+margin_right = 282.0
+margin_bottom = 57.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Separated notes"
 
 [node name="Mode2" type="Button" parent="WindowDialog/VBoxContainer"]
-margin_top = 49.0
-margin_right = 234.0
-margin_bottom = 95.0
+margin_top = 61.0
+margin_right = 282.0
+margin_bottom = 119.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Randomized notes"
 
 [node name="Mode3" type="Button" parent="WindowDialog/VBoxContainer"]
-margin_top = 99.0
-margin_right = 234.0
-margin_bottom = 145.0
+margin_top = 123.0
+margin_right = 282.0
+margin_bottom = 181.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Duplicated notes"
 
-[connection signal="button_down" from="Start_Button" to="." method="_on_Start_Button_button_down"]
-[connection signal="pressed" from="Start_Button_MULTI" to="." method="_on_Start_Button_MULTI_pressed"]
-[connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -178.0
+margin_bottom = -27.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer"]
+margin_left = 137.0
+margin_top = 41.0
+margin_right = 887.0
+margin_bottom = 109.0
+custom_fonts/font = ExtResource( 3 )
+text = "SUPER DUPER DISCO"
+
 [connection signal="item_selected" from="SongSelector" to="SongSelector" method="_on_song_selector_item_selected"]
-[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="button_down" from="HBoxContainer/Start_Button" to="." method="_on_Start_Button_button_down"]
+[connection signal="pressed" from="HBoxContainer/Start_Button_MULTI" to="." method="_on_Start_Button_MULTI_pressed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer2/HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="button_down" from="WindowDialog/VBoxContainer/Mode1" to="." method="_on_Mode1_button_down"]
 [connection signal="pressed" from="WindowDialog/VBoxContainer/Mode1" to="." method="_on_Mode1_pressed"]
+[connection signal="button_down" from="WindowDialog/VBoxContainer/Mode2" to="." method="_on_Mode2_button_down"]
 [connection signal="pressed" from="WindowDialog/VBoxContainer/Mode2" to="." method="_on_Mode2_pressed"]
+[connection signal="button_down" from="WindowDialog/VBoxContainer/Mode3" to="." method="_on_Mode3_button_down"]
 [connection signal="pressed" from="WindowDialog/VBoxContainer/Mode3" to="." method="_on_Mode3_pressed"]

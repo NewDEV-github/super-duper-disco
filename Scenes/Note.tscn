@@ -9,7 +9,7 @@
 extents = Vector2( 4, 4 )
 
 [node name="Note" type="Area2D" groups=["note"]]
-scale = Vector2( 0.17, 0.17 )
+scale = Vector2( 0.25, 0.25 )
 script = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
