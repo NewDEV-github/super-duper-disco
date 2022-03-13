@@ -7,7 +7,11 @@ enum MultiGameModes {
 var multi_game_mode = MultiGameModes.DuplicatedNotes
 var multi_mode = false
 var score = 0
+var score_p1 = 0
+var score_p2 = 0
 var combo = 0
+var combo_p1 = 0
+var combo_p2 = 0
 var great = 0
 var good = 0
 var okay = 0

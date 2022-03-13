@@ -1,11 +1,16 @@
 extends Node2D
 
 var score = 0
+var score_p2 = 0
+var score_p1 = 0
 var combo = 0
+var combo_p1 = 0
+var combo_p2 = 0
 var notes_spawn = {}
 var notes_spawn_multi_1 = {}
 var notes_spawn_multi_2 = {}
-var max_combo = 0
+var max_combo_p1 = 0
+var max_combo_p2 = 0
 var great = 0
 var good = 0
 var okay = 0
@@ -97,7 +102,8 @@ func _on_Conductor_beat(position):
 		if song_position_in_beats >= int(i):
 			if int(i) == int(end_song_position):
 				Global.set_score(score)
-				Global.combo = max_combo
+				Global.combo_p1 = max_combo_p1
+				Global.combo_p2 = max_combo_p2
 				Global.great = great
 				Global.good = good
 				Global.okay = okay
@@ -181,12 +187,17 @@ func _spawn_notes(to_spawn, player_number:int=0):
 				add_child(instance2)
 
 
-func increment_score(by):
+func increment_score(by, player_number:int=0):
 	if by > 0:
-		combo += 1
+		if player_number ==1:
+			combo_p1 += 1
+		elif player_number ==2:
+			combo_p2 += 1
+#		combo += 1
 	else:
-		combo = 0
-	
+		combo_p1 = 0
+		combo_p2 = 0
+	print(player_number)
 	if by == 3:
 		great += 1
 	elif by == 2:
@@ -196,20 +207,40 @@ func increment_score(by):
 	else:
 		missed += 1
 	
-	
-	score += by * combo
-	$Label.text = str(score)
-	if combo > 0:
-		$Combo.text = str(combo) + " combo!"
-		if combo > max_combo:
-			max_combo = combo
+	if player_number == 0:
+		score += by * combo
+		$Label.text = str(score)
+	elif player_number == 1:
+		score_p1 += by *combo_p1
+		$score_p1.text = str(score_p1)
+	elif player_number == 2:
+		score_p2 += by*combo_p2
+		$score_p2.text = str(score_p2)
+	if combo_p1 > 0:
+		$combo_p1.text = str(combo_p1) + " combo!"
+		if combo_p1 > max_combo_p1:
+			max_combo_p1 = combo_p1
+	if combo_p2 > 0:
+		$combo_p2.text = str(combo_p2) + " combo!"
+		if combo_p2 > max_combo_p2:
+			max_combo_p2 = combo_p2
 	else:
-		$Combo.text = ""
+#		$Combo.text = ""
+		if player_number == 1:
+			$combo_p1.text = ""
+		elif player_number == 2:
+			$combo_p2.text = ""
 
 
-func reset_combo():
-	combo = 0
-	$Combo.text = ""
+func reset_combo(player:int=0):
+	if player == 0:
+		combo = 0
+	elif player == 1:
+		combo_p1 = 0
+		$combo_p1.text = ""
+	elif player == 2:
+		combo_p2 = 0
+		$combo_p2.text = ""
 
 func ParseAudioAsStreamData(filepath):
 	print("AUDIO AT: " + filepath)

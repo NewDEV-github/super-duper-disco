@@ -13,7 +13,7 @@ const RIGHT_LANE_SPAWN_MULTI_P1 = Vector2(130, SPAWN_Y)
 const RIGHT_LANE_SPAWN_MULTI_P2 = Vector2(276, SPAWN_Y)
 const CENTRE_LANE_SPAWN_MULTI_P1 = Vector2(90, SPAWN_Y)
 const CENTRE_LANE_SPAWN_MULTI_P2 = Vector2(236, SPAWN_Y)
-
+var note_player = 0
 var speed = 0
 var hit = false
 
@@ -27,12 +27,13 @@ func _physics_process(delta):
 		position.y += speed * delta
 		if position.y > 200:
 			queue_free()
-			get_parent().reset_combo()
+			get_parent().reset_combo(note_player)
 	else:
 		$Node2D.position.y -= speed * delta
 
 
 func initialize(lane, player:int=0): #player number, leave 0 if not multi
+	note_player = player
 	if Global.multi_mode:
 		if lane == 0:
 			$AnimatedSprite.frame = 0

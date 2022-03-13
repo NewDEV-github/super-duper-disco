@@ -94,7 +94,7 @@ func _spawn_notes(to_spawn):
 		
 
 
-func increment_score(by):
+func increment_score(by, player_number:int=0):
 	if by > 0:
 		combo += 1
 	else:
