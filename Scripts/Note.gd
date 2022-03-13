@@ -82,14 +82,12 @@ func destroy(score):
 	hit = true
 	if score == 3:
 		$Node2D/Label.text = "GREAT"
-		$Node2D/Label.modulate = Color("f6d6bd")
+		$Node2D/Label.modulate = Color.green
 	elif score == 2:
 		$Node2D/Label.text = "GOOD"
-		$Node2D/Label.modulate = Color("c3a38a")
+		$Node2D/Label.modulate = Color.yellow
 	elif score == 1:
 		$Node2D/Label.text = "OKAY"
-		$Node2D/Label.modulate = Color("997577")
-
-
+		$Node2D/Label.modulate = Color.red
 func _on_Timer_timeout():
 	queue_free()

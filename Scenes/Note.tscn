@@ -2,14 +2,14 @@
 
 [ext_resource path="res://Frames/note_frames.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Sprites/game/particles/star.png" type="Texture" id=2]
-[ext_resource path="res://Fonts/heartbit2x.tres" type="DynamicFont" id=3]
+[ext_resource path="res://kenneyUI-yellow.tres" type="Theme" id=3]
 [ext_resource path="res://Scripts/Note.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4, 4 )
 
 [node name="Note" type="Area2D" groups=["note"]]
-scale = Vector2( 0.25, 0.25 )
+scale = Vector2( 0.3, 0.3 )
 script = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -45,9 +45,8 @@ anchor_right = 0.046
 margin_left = -20.0
 margin_top = -8.0
 margin_right = 20.0
-margin_bottom = 6.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_fonts/font = ExtResource( 3 )
+margin_bottom = 10.0
+theme = ExtResource( 3 )
 align = 1
 valign = 1
 __meta__ = {
