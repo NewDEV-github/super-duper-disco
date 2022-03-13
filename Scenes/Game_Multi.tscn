@@ -8,7 +8,7 @@
 [ext_resource path="res://Scripts/Game_Multi.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Timer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Conductor.tscn" type="PackedScene" id=8]
-[ext_resource path="res://kenneyUI-yellow.tres" type="Theme" id=9]
+[ext_resource path="res://ThemeAndRelatedTHings/kenneyUI-yellow.tres" type="Theme" id=9]
 
 [node name="Game" type="Control"]
 anchor_right = 1.0

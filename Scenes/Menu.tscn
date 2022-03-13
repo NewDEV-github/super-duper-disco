@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
-[ext_resource path="res://kenneyUI-yellow.tres" type="Theme" id=2]
-[ext_resource path="res://monka_giga_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://ThemeAndRelatedTHings/kenneyUI-yellow.tres" type="Theme" id=2]
+[ext_resource path="res://ThemeAndRelatedTHings/monka_giga_font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Sounds/bell_ding.ogg" type="AudioStream" id=11]
 [ext_resource path="res://Scripts/SongSelector.gd" type="Script" id=12]
 
