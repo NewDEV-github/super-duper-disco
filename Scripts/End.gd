@@ -1,7 +1,7 @@
 extends Control
 
 func _on_PlayAgain_pressed():
-	if get_tree().change_scene("res://Scenes/Game_Multi.tscn") != OK:
+	if get_tree().change_scene("res://Scenes/Game.tscn") != OK:
 			print ("Error changing scene to Game")
 
 
