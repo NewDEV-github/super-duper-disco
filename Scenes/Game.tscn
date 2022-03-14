@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/ArrowButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Frames/arrow_left_frames.tres" type="SpriteFrames" id=2]
@@ -6,9 +6,12 @@
 [ext_resource path="res://Sprites/game/road/road.png" type="Texture" id=4]
 [ext_resource path="res://Sounds/song.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/CutscenePlayerLoop.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/Conductor.tscn" type="PackedScene" id=8]
 [ext_resource path="res://ThemeAndRelatedTHings/kenneyUI-yellow.tres" type="Theme" id=9]
 [ext_resource path="res://Scenes/Timer.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Backgrounds/bg.webm" type="VideoStream" id=11]
+[ext_resource path="res://Scenes/PauseMenu.tscn" type="PackedScene" id=12]
 
 [node name="Game" type="Control"]
 anchor_right = 1.0
@@ -18,6 +21,14 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+stream = ExtResource( 11 )
+autoplay = true
+script = ExtResource( 7 )
 
 [node name="road" type="Sprite" parent="."]
 position = Vector2( 393, 0 )
@@ -104,6 +115,8 @@ margin_left = -20.0
 margin_top = 10.0
 margin_right = 20.0
 margin_bottom = 18.0
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 12 )]
 
 [connection signal="beat" from="Conductor" to="." method="_on_Conductor_beat"]
 [connection signal="measure" from="Conductor" to="." method="_on_Conductor_measure"]

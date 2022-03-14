@@ -2,7 +2,14 @@ extends Control
 
 func _on_Start_Button_button_down():
 	go_to_game()
-
+func _ready():
+	pass
+#	var stream = VideoStreamGDNative.new()
+#	var file = "res://Backgrounds/bg.webm"
+#	stream.set_file(file)
+#	var vp = $VideoPlayer
+#	vp.stream = stream
+#	vp.play()
 func go_to_game(multi_mode:bool=false):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), 
 								linear2db($VBoxContainer/HBoxContainer2/HSlider.value))
@@ -51,3 +58,19 @@ func _on_Mode3_pressed(): #Duplicated notes
 func _on_Mode3_button_down():
 	Global.multi_game_mode = Global.MultiGameModes.DuplicatedNotes
 	go_to_game(true)
+
+#film sie kurwa nie chce loopowac
+func _on_VideoPlayer_finished(): 
+	pass
+
+
+func _on_VideoPlayer2_finished():
+	$VideoPlayer2.hide()
+	$VideoPlayer.show()
+	var stream = VideoStreamGDNative.new()
+	var file = "res://Backgrounds/bg.webm"
+	stream.set_file(file)
+	var vp = $VideoPlayer
+	vp.stream = stream
+	vp.play()
+

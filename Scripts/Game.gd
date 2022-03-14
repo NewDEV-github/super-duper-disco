@@ -33,10 +33,6 @@ func _ready():
 		load_song(Global.current_game_config_path)
 
 
-func _input(event):
-	if event.is_action("escape"):
-		if get_tree().change_scene("res://Scenes/Menu.tscn") != OK:
-			print ("Error changing scene to Menu")
 
 func load_song(script_path:String):
 	var s = load(script_path).new()

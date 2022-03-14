@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ThemeAndRelatedTHings/kenneyUI-yellow.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.2, 0.231373, 0.309804, 1 )
+
+[node name="CanvasLayer" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 2 )
+
+[node name="WindowDialog" type="Panel" parent="."]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -121.0
+margin_top = -96.0
+margin_right = 121.0
+margin_bottom = 96.0
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WindowDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Resume" type="Button" parent="WindowDialog/VBoxContainer"]
+margin_right = 242.0
+margin_bottom = 61.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Resume game"
+
+[node name="Restart" type="Button" parent="WindowDialog/VBoxContainer"]
+margin_top = 65.0
+margin_right = 242.0
+margin_bottom = 126.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Restart game"
+
+[node name="QuitToMenu" type="Button" parent="WindowDialog/VBoxContainer"]
+margin_top = 130.0
+margin_right = 242.0
+margin_bottom = 192.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "quit to main menu"
+
+[connection signal="pressed" from="WindowDialog/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="WindowDialog/VBoxContainer/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="WindowDialog/VBoxContainer/QuitToMenu" to="." method="_on_QuitToMenu_pressed"]

@@ -55,26 +55,23 @@ func _ready():
 	if Global.current_game_config_path != "NA":
 		load_song(Global.current_game_config_path)
 
-
-func _input(event):
-	if event.is_action("escape"):
-		if get_tree().change_scene("res://Scenes/Menu.tscn") != OK:
-			print ("Error changing scene to Menu")
-	if event.is_action_pressed("go_to_end_test"): #Shift + Ctrl + Alt + E
-		Global.set_score_p1(score_p1)
-		Global.set_score_p2(score_p2)
-		Global.combo_p1 = max_combo_p1
-		Global.combo_p2 = max_combo_p2
-		Global.great_p1 = great_p1
-		Global.great_p2 = great_p2
-		Global.good_p1 = good_p2
-		Global.good_p2 = good_p2
-		Global.okay_p1 = okay_p1
-		Global.okay_p2 = okay_p2
-		Global.missed_p1 = missed_p1
-		Global.missed_p2 = missed_p2
-		if get_tree().change_scene("res://Scenes/End_Multi.tscn") != OK:
-			print("Error changing scene to End")
+#
+#func _input(event):
+#	if event.is_action_pressed("go_to_end_test"): #Shift + Ctrl + Alt + E
+#		Global.set_score_p1(score_p1)
+#		Global.set_score_p2(score_p2)
+#		Global.combo_p1 = max_combo_p1
+#		Global.combo_p2 = max_combo_p2
+#		Global.great_p1 = great_p1
+#		Global.great_p2 = great_p2
+#		Global.good_p1 = good_p2
+#		Global.good_p2 = good_p2
+#		Global.okay_p1 = okay_p1
+#		Global.okay_p2 = okay_p2
+#		Global.missed_p1 = missed_p1
+#		Global.missed_p2 = missed_p2
+#		if get_tree().change_scene("res://Scenes/End_Multi.tscn") != OK:
+#			print("Error changing scene to End")
 func load_song(script_path:String):
 	var s = load(script_path).new()
 	$Conductor.bpm = s.bpm
@@ -403,3 +400,6 @@ func report_errors(err, filepath):
 		print("Error: ", result_hash[err], " ", filepath)
 	else:
 		print("Unknown error with file ", filepath, " error code: ", err)
+
+
+
