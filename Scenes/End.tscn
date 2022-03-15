@@ -52,7 +52,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer/HBoxContainer2"]
-visible = false
 margin_right = 510.0
 margin_bottom = 298.0
 size_flags_horizontal = 3
@@ -67,14 +66,18 @@ size_flags_horizontal = 5
 text = "play again"
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 514.0
 margin_right = 1024.0
 margin_bottom = 298.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="BackToMenu" type="Button" parent="VBoxContainer/HBoxContainer2/CenterContainer"]
-margin_left = 434.0
+margin_left = 177.0
 margin_top = 127.0
-margin_right = 589.324
+margin_right = 332.324
 margin_bottom = 169.251
 text = "quit to menu"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/CenterContainer2/PlayAgain" to="." method="_on_PlayAgain_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/CenterContainer/BackToMenu" to="." method="_on_BackToMenu_pressed"]

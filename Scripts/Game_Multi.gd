@@ -160,7 +160,7 @@ func _spawn_notes(to_spawn, player_number:int=0):
 				instance = note.instance()
 				instance.initialize(lane, player)
 				add_child(instance)
-			if to_spawn > 1:
+			elif to_spawn > 1:
 				while rand == lane:
 					rand = randi() % 3
 				lane = rand
@@ -176,7 +176,7 @@ func _spawn_notes(to_spawn, player_number:int=0):
 				instance2 = note.instance()
 				instance2.initialize(lane, 2)
 				add_child(instance2)
-			if to_spawn > 1:
+			elif to_spawn > 1:
 				while rand == lane:
 					rand = randi() % 3
 				lane = rand
@@ -195,7 +195,7 @@ func _spawn_notes(to_spawn, player_number:int=0):
 				instance2 = note.instance()
 				instance2.initialize(lane, player_number)
 				add_child(instance2)
-			if to_spawn > 1:
+			elif to_spawn > 1:
 				while rand == lane:
 					rand = randi() % 3
 				lane = rand

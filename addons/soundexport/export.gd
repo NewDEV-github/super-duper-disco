@@ -18,7 +18,6 @@ func _export_begin(features, is_debug, path:String, flags):
 		var dest_path = path.get_base_dir() + "/" + compiled_path
 		var dir = Directory.new()
 		print("[SongExport] Checking if song export dir exists...")
-		print(str(dest_path).get_base_dir())
 		if not dir.dir_exists(str(dest_path).get_base_dir()):
 			print("[SongExport] Song export dir doesn't exist, creating new one at: " + str(dest_path).get_base_dir())
 			dir.make_dir_recursive(str(dest_path).get_base_dir())
