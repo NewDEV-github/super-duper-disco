@@ -23,7 +23,7 @@ func scan_songs():
 	while file_name != "":
 		if d.current_is_dir() and not av_dirs.has(file_name):
 			print(file_name)
-			var base_path = "res://Songs/" + file_name.get_basename()
+			var base_path = Global.install_base_path + file_name.get_basename()
 			var song_name = _get_song_data(base_path).song_name
 			init_script_paths[song_name] = base_path + "/init.gd"
 			add_item(song_name)

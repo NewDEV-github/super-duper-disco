@@ -15,7 +15,7 @@ func go_to_game(multi_mode:bool=false):
 								linear2db($VBoxContainer/HBoxContainer2/HSlider.value))
 #	if get_tree().change_scene("res://Scenes/Game.tscn") != OK:
 #		print ("Error changing scene to Game")
-	Global.current_game_config_path ="res://Songs/VeryNiceSong/init.gd"
+	Global.current_game_config_path = Global.install_base_path + "res/songs/VeryNiceSong/init.gd"
 #	$SongSelector.show()
 	Global.multi_mode = multi_mode
 	if multi_mode:

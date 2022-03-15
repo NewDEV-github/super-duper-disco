@@ -76,7 +76,7 @@ func load_song(script_path:String):
 	var s = load(script_path).new()
 	$Conductor.bpm = s.bpm
 	$Conductor.measures = s.measures #MAX 4
-	$Conductor.stream = ParseAudioAsStreamData(s.song_file_path)
+	$Conductor.stream = ParseAudioAsStreamData(Global.install_base_path + s.song_file_path)
 	notes_spawn = s.notes_spawn
 	notes_spawn_multi_1 = s.notes_spawn_multi_1
 	notes_spawn_multi_2 = s.notes_spawn_multi_2

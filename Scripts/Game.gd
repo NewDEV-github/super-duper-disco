@@ -38,7 +38,7 @@ func load_song(script_path:String):
 	var s = load(script_path).new()
 	$Conductor.bpm = s.bpm
 	$Conductor.measures = s.measures #MAX 4
-	$Conductor.stream = ParseAudioAsStreamData(s.song_file_path)
+	$Conductor.stream = ParseAudioAsStreamData(Global.install_base_path + s.song_file_path)
 	notes_spawn = s.notes_spawn
 	end_song_position = int(s.end_song_position)
 	$Conductor.play_with_beat_offset(s.play_offset)

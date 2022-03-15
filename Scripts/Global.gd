@@ -4,6 +4,7 @@ enum MultiGameModes {
 	RandomizedNotes = 1
 	DuplicatedNotes = 2
 }
+var install_base_path = OS.get_executable_path().get_base_dir() + "/"
 var multi_game_mode = MultiGameModes.DuplicatedNotes
 var multi_mode = false
 var score = 0
