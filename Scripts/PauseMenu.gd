@@ -18,12 +18,17 @@ func _process(_delta):
 #func _process(delta):
 #	pass
 func _on_Resume_pressed():
-	pass # Replace with function body.
+	$WindowDialog.visible = !$WindowDialog.visible
+	get_tree().paused = $WindowDialog.visible
 
 
 func _on_Restart_pressed():
-	pass # Replace with function body.
+	$WindowDialog.visible = !$WindowDialog.visible
+	get_tree().paused = $WindowDialog.visible
+	get_tree().reload_current_scene()
 
 
 func _on_QuitToMenu_pressed():
-	pass # Replace with function body.
+	$WindowDialog.visible = !$WindowDialog.visible
+	get_tree().paused = $WindowDialog.visible
+	get_tree().change_scene("res://Scenes/Menu.tscn")

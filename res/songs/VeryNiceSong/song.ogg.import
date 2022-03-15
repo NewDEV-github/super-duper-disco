@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/song.ogg-15e1bed2afa27501428ca88473634298.oggstr"
+path="res://.import/song.ogg-37f51446a90da9d059daf71533252fe7.oggstr"
 
 [deps]
 
-source_file="res://Songs/VeryNiceSong/song.ogg"
-dest_files=[ "res://.import/song.ogg-15e1bed2afa27501428ca88473634298.oggstr" ]
+source_file="res://res/songs/VeryNiceSong/song.ogg"
+dest_files=[ "res://.import/song.ogg-37f51446a90da9d059daf71533252fe7.oggstr" ]
 
 [params]
 

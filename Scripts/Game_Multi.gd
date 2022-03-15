@@ -249,16 +249,15 @@ func increment_score(by, player_number:int=0):
 		$PlayersUI/Player1/combo_and_score/combo_p1.text = str(combo_p1) + " combo!"
 		if combo_p1 > max_combo_p1:
 			max_combo_p1 = combo_p1
+	else:
+		$PlayersUI/Player1/combo_and_score/combo_p1.text = ""
 	if combo_p2 > 0:
 		$PlayersUI/Player2/combo_and_score/combo_p2.text = str(combo_p2) + " combo!"
 		if combo_p2 > max_combo_p2:
 			max_combo_p2 = combo_p2
 	else:
 #		$Combo.text = ""
-		if player_number == 1:
-			$PlayersUI/Player1/combo_and_score/combo_p1.text = ""
-		elif player_number == 2:
-			$PlayersUI/Player2/combo_and_score/combo_p2.text = ""
+		$PlayersUI/Player2/combo_and_score/combo_p2.text = ""
 
 
 func reset_combo(player:int=0):
