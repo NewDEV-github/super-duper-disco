@@ -51,6 +51,12 @@ var instance
 var instance2
 
 func _ready():
+	if Global.enable_combo:
+		$PlayersUI/Player1/combo_and_score/combo_p1.show()
+		$PlayersUI/Player2/combo_and_score/combo_p2.show()
+	else:
+		$PlayersUI/Player1/combo_and_score/combo_p1.show()
+		$PlayersUI/Player2/combo_and_score/combo_p2.hide()
 	randomize()
 	if Global.current_game_config_path != "NA":
 		load_song(Global.current_game_config_path)

@@ -1,4 +1,6 @@
 extends Node2D
+
+var enable_combo = false
 enum MultiGameModes {
 	SeparatedNotes = 0
 	RandomizedNotes = 1

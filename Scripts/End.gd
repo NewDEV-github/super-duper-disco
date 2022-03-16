@@ -11,5 +11,10 @@ func _on_BackToMenu_pressed():
 func _ready():
 	_render_score()
 func _render_score():
-	var _t = "Player 1\n\nGrade: %s\nScore: %s\nBest combo: %s \nGreat notes: %s \nGood notes: %s \nOkay notes: %s \nMissed notes: %s"
-	$VBoxContainer/HBoxContainer/Player/Label.text = _t % [Global.grade, Global.score, Global.combo, Global.great, Global.good, Global.okay, Global.missed]
+	if Global.enable_combo:
+		var _t = "Player 1\n\nGrade: %s\nScore: %s\nBest combo: %s \nGreat notes: %s \nGood notes: %s \nOkay notes: %s \nMissed notes: %s"
+		$VBoxContainer/HBoxContainer/Player/Label.text = _t % [Global.grade, Global.score, Global.combo, Global.great, Global.good, Global.okay, Global.missed]
+	else:
+		var _t = "Player 1\n\nGrade: %s\nScore: %s \nGreat notes: %s \nGood notes: %s \nOkay notes: %s \nMissed notes: %s"
+		$VBoxContainer/HBoxContainer/Player/Label.text = _t % [Global.grade, Global.score, Global.great, Global.good, Global.okay, Global.missed]
+	
