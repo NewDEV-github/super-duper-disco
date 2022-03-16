@@ -51,6 +51,7 @@ var instance
 var instance2
 
 func _ready():
+	get_tree().paused = false
 	if Global.enable_combo:
 		$PlayersUI/Player1/combo_and_score/combo_p1.show()
 		$PlayersUI/Player2/combo_and_score/combo_p2.show()
@@ -251,13 +252,13 @@ func increment_score(by, player_number:int=0):
 	elif player_number == 2:
 		score_p2 += by*combo_p2
 		$PlayersUI/Player2/combo_and_score/score_p2.text = str(score_p2)
-	if combo_p1 > 0:
+	if combo_p1 > 0 and Global.enable_combo:
 		$PlayersUI/Player1/combo_and_score/combo_p1.text = str(combo_p1) + " combo!"
 		if combo_p1 > max_combo_p1:
 			max_combo_p1 = combo_p1
 	else:
 		$PlayersUI/Player1/combo_and_score/combo_p1.text = ""
-	if combo_p2 > 0:
+	if combo_p2 > 0 and Global.enable_combo:
 		$PlayersUI/Player2/combo_and_score/combo_p2.text = str(combo_p2) + " combo!"
 		if combo_p2 > max_combo_p2:
 			max_combo_p2 = combo_p2

@@ -3,7 +3,7 @@ extends Control
 func _on_Start_Button_button_down():
 	go_to_game()
 func _ready():
-	pass
+	get_tree().paused = false
 #	var stream = VideoStreamGDNative.new()
 #	var file = "res://Backgrounds/bg.webm"
 #	stream.set_file(file)

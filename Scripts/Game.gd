@@ -28,6 +28,7 @@ var instance
 
 
 func _ready():
+	get_tree().paused = false
 	if Global.enable_combo:
 		$PlayersUI/Player1/combo_and_score/combo_p1.show()
 	else:
