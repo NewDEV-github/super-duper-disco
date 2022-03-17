@@ -20,6 +20,9 @@ anchor_bottom = 1.0
 margin_left = -109.0
 margin_top = -84.0
 margin_right = 109.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
 text = "controls: 
 player 1 - wasd
 player 2 - arrows"
@@ -89,6 +92,9 @@ __meta__ = {
 margin_top = 12.0
 margin_right = 65.0
 margin_bottom = 30.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
 text = "sound"
 align = 1
 valign = 1
@@ -180,6 +186,9 @@ margin_left = 137.0
 margin_top = 41.0
 margin_right = 887.0
 margin_bottom = 109.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
 custom_fonts/font = ExtResource( 3 )
 text = "SUPER DUPER DISCO"
 

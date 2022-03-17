@@ -5,14 +5,32 @@ func _ready():
 	pass # Replace with function body.
 var end_song_position = 404
 var bpm = 115
-var song_name = "Very Nice Song"
-var song_author = "DoS"
-var song_album = "Super Duper Disco"
+var song_name = "Balkanica"
+var song_author = "Piersi"
+var song_album = "Piersi i przyjaciele 2"
 var measures = 4
 var play_offset = 8 
-var song_file_path = "res/songs/VeryNiceSong/song.ogg"
+var song_file_path = "res/songs/Balkanica/balkanica.ogg"
 var notes_spawn = {
-	"36": {
+	"0": {
+		"spawn_1_beat": 0,
+		"spawn_2_beat": 0,
+		"spawn_3_beat": 0,
+		"spawn_4_beat": 0,
+	},
+	"6": {
+		"spawn_1_beat": 1,
+		"spawn_2_beat": 1,
+		"spawn_3_beat": 1,
+		"spawn_4_beat": 1,
+	},
+	"10": {
+		"spawn_1_beat": 0,
+		"spawn_2_beat": 1,
+		"spawn_3_beat": 0,
+		"spawn_4_beat": 1,
+	},
+	"30": {
 		"spawn_1_beat": 1,
 		"spawn_2_beat": 1,
 		"spawn_3_beat": 1,
@@ -20,14 +38,14 @@ var notes_spawn = {
 	},
 	"98": {
 		"spawn_1_beat": 2,
-		"spawn_2_beat": 0,
-		"spawn_3_beat": 1,
-		"spawn_4_beat": 0,
+		"spawn_2_beat": 1,
+		"spawn_3_beat": 2,
+		"spawn_4_beat": 1,
 	},
 	"132": {
-		"spawn_1_beat": 0,
+		"spawn_1_beat": 1,
 		"spawn_2_beat": 2,
-		"spawn_3_beat": 0,
+		"spawn_3_beat": 1,
 		"spawn_4_beat": 2,
 	},
 	"162": {
