@@ -17,6 +17,7 @@ func go_to_game(multi_mode:bool=false):
 #		print ("Error changing scene to Game")
 #	Global.current_game_config_path = Global.install_base_path + "res/songs/Balkanica/init.gd"
 	$SongSelector.show()
+	$WindowDialog.hide()
 	yield($SongSelector,"ready_to_play")
 	Global.multi_mode = multi_mode
 	if multi_mode:
