@@ -42,3 +42,4 @@ func display_song_info(data:Dictionary):
 	var song_author = data["song_author"]
 	var song_album = data["song_album"]
 	$Control/SongInfo.set_text("Name: %s\nAuthor: %s\nAlbum: %s" % [song_name, song_author, song_album])
+	$AnimationPlayer.play("song_info")

@@ -3,6 +3,7 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
+var initialize = true
 var end_song_position = 404
 var bpm = 115
 var song_name = "Very Nice Song"

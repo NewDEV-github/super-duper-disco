@@ -4,7 +4,7 @@ extends ItemList
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+signal ready_to_play
 var init_script_paths = {}
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,8 +25,9 @@ func scan_songs():
 			print(file_name)
 			var base_path = Global.install_base_path + "res/songs/" + file_name
 			var song_name = _get_song_data(base_path).song_name
-			init_script_paths[song_name] = base_path + "/init.gd"
-			add_item(song_name)
+			if _get_song_data(base_path).initialize == true:
+				init_script_paths[song_name] = base_path + "/init.gd"
+				add_item(song_name)
 		file_name = d.get_next()
 
 func _get_song_data(path):
@@ -34,4 +35,4 @@ func _get_song_data(path):
 	return s
 func _on_song_selector_item_selected(index):
 	Global.current_game_config_path = init_script_paths[get_item_text(index)]
-	get_tree().change_scene("res://Scenes/Game.tscn")
+	emit_signal("ready_to_play")

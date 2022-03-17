@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/hill.mp3-9448a12cdc9f70f9f323730f03888fc5.mp3str"
+
+[deps]
+
+source_file="res://res/songs/Hill/hill.mp3"
+dest_files=[ "res://.import/hill.mp3-9448a12cdc9f70f9f323730f03888fc5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
