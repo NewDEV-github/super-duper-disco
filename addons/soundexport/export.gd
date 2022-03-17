@@ -9,7 +9,7 @@ extends EditorExportPlugin
 # Called when the node enters the scene tree for the first time.
 func _export_begin(features, is_debug, path:String, flags):
 	print("Exporting to path: " +path.get_base_dir())
-	var files = get_all_song_files('res://res')
+	var files = get_all_song_files('res://res/songs')
 	for i in files:
 		var splitted_path = str(i).split("/")
 		splitted_path.remove(0)

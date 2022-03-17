@@ -8,6 +8,7 @@ signal ready_to_play
 var init_script_paths = {}
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	scan_songs()
 
 
@@ -29,6 +30,8 @@ func scan_songs():
 				init_script_paths[song_name] = base_path + "/init.gd"
 				add_item(song_name)
 		file_name = d.get_next()
+	for id in get_item_count() - 1:
+		set_item_tooltip_enabled(id, false)
 
 func _get_song_data(path):
 	var s = load(path + "/init.gd").new()
