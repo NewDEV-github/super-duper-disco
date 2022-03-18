@@ -100,10 +100,10 @@ godot::String ProtogenTechnologyCore::init_debugger() {
     }
 }
 bool ProtogenTechnologyCore::init_checks() {
-    return true //no checks needed for now
+    return true; //no checks needed for now
 }
 bool ProtogenTechnologyCore::init_debugger_checks() {
-    return true //no checks needed for now
+    return true; //no checks needed for now
 }
 void ProtogenTechnologyCore::throw_error(godot::String where, godot::String what) {
     if (initialized == true) {
