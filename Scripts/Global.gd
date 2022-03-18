@@ -32,7 +32,8 @@ var grade_p1 = "NA"
 var grade_p2 = "NA"
 var current_game_config_path = "NA"
 func _ready():
-	pass
+	if str(ProtogenTechnologyCore.new().init_sdk(1)) == "init_d":
+		proto_tech_initialized = true
 func set_score(new):
 	score = new
 	if score > 250000:

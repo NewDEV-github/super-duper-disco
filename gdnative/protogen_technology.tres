@@ -1,0 +1,9 @@
+[gd_resource type="GDNativeLibrary" format=2]
+
+[resource]
+entry/OSX.64 = "res://gdnative/protogen_technology/osx/libProtogenTechnology.Core.dylib"
+entry/Windows.64 = "res://gdnative/protogen_technology/win64/ProtogenTechnology.Core.dll"
+entry/X11.64 = "res://gdnative/protogen_technology/x11/libProtogenTechnology.Core.so"
+dependency/OSX.64 = [  ]
+dependency/Windows.64 = [  ]
+dependency/X11.64 = [  ]

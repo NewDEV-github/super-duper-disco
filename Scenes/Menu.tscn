@@ -79,6 +79,15 @@ player 2 - arrows"
 align = 1
 valign = 1
 
+[node name="Label" type="Label" parent="."]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 382.0
+margin_bottom = 75.0
+text = "Powered by Godot Engine
+
+Powered by Protogen Technology"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_top = 0.5
 anchor_right = 1.0
