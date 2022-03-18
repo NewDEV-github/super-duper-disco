@@ -85,17 +85,17 @@ godot::String ProtogenTechnologyCore::init_sdk(int init_flag) {
     }
 }
 godot::String ProtogenTechnologyCore::init_debugger() {
-    godot::String message = ""
+    godot::String message = "";
     godot::Godot::print("Initializing Protogen Technology SDK Debugger...");
     if (ProtogenTechnologyCore::init_debugger_checks() == true) {     
         debugger_initialized = true;
         godot::Godot::print("Protogen Technology SDK Debugger Initialized!");
-        message = "init_d"
+        message = "init_d";
         return message
     }
     else {
-        godot::Godot::print("Can not initialize Protogen Technology SDK Debugger")
-        message = "not_init_d"
+        godot::Godot::print("Can not initialize Protogen Technology SDK Debugger");
+        message = "not_init_d";
         return message
     }
 }

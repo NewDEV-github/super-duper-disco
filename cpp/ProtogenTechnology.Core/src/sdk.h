@@ -51,7 +51,7 @@ public:
     ~ProtogenTechnologyCore();
 
     void _init(); // our initializer called by Godot
-    godot::String void init_sdk(int init_flag);
+    godot::String init_sdk(int init_flag);
     void deinit_sdk();
     godot::String get_changelog();
     int get_version();
