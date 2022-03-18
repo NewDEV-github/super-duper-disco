@@ -8,9 +8,6 @@ margin_bottom = 14.0
 align = 1
 valign = 1
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ms" type="Timer" parent="."]
 wait_time = 0.1

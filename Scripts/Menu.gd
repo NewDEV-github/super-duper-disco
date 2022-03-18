@@ -1,5 +1,4 @@
 extends Control
-
 func _on_Start_Button_button_down():
 	go_to_game()
 func _ready():
@@ -20,6 +19,8 @@ func go_to_game(multi_mode:bool=false):
 	$WindowDialog.hide()
 	yield($SongSelector,"ready_to_play")
 	Global.multi_mode = multi_mode
+	$AnimationPlayer.play("outro")
+	yield($AnimationPlayer, "animation_finished")
 	if multi_mode:
 		get_tree().change_scene("res://Scenes/Game_Multi.tscn")
 	else:
@@ -76,3 +77,7 @@ func _on_VideoPlayer2_finished():
 	vp.stream = stream
 	vp.play()
 
+
+
+func _on_SongSelector_ready_to_play():
+	pass # Replace with function body.

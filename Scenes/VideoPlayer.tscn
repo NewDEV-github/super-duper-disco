@@ -5,6 +5,7 @@
 
 [node name="VideoPlayer" type="VideoPlayer"]
 pause_mode = 2
+light_mask = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 stream = ExtResource( 2 )

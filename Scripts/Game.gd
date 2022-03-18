@@ -29,6 +29,8 @@ var instance
 
 func _ready():
 	get_tree().paused = false
+	$AnimationPlayer.play("intro")
+	yield($AnimationPlayer, "animation_finished")
 	if Global.enable_combo:
 		$PlayersUI/Player1/combo_and_score/combo_p1.show()
 	else:
@@ -46,6 +48,8 @@ func load_song(script_path:String):
 	$Conductor.stream = ParseAudioAsStreamData(Global.install_base_path + s.song_file_path)
 	notes_spawn = s.notes_spawn
 	end_song_position = int(s.end_song_position)
+	var data = {"song_name": s.song_name, "song_author": s.song_author, "song_album": s.song_album}
+	$CanvasLayer.display_song_info(data)
 	$Conductor.play_with_beat_offset(s.play_offset)
 
 func _on_Conductor_measure(position):

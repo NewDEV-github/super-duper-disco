@@ -9,10 +9,7 @@ var paused = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var song_info
-	var song_info_script = load(Global.current_game_config_path).new()
-	var data = {"song_name": song_info_script.song_name, "song_author": song_info_script.song_author, "song_album": song_info_script.song_album}
 	$WindowDialog.hide()# Replace with function body.
-	display_song_info(data)
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		$WindowDialog.visible = !$WindowDialog.visible

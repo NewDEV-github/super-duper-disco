@@ -52,6 +52,8 @@ var instance2
 
 func _ready():
 	get_tree().paused = false
+	$AnimationPlayer.play("intro")
+	yield($AnimationPlayer, "animation_finished")
 	if Global.enable_combo:
 		$PlayersUI/Player1/combo_and_score/combo_p1.show()
 		$PlayersUI/Player2/combo_and_score/combo_p2.show()
@@ -88,6 +90,8 @@ func load_song(script_path:String):
 	notes_spawn_multi_1 = s.notes_spawn_multi_1
 	notes_spawn_multi_2 = s.notes_spawn_multi_2
 	end_song_position = int(s.end_song_position)
+	var data = {"song_name": s.song_name, "song_author": s.song_author, "song_album": s.song_album}
+	$CanvasLayer.display_song_info(data)
 	$Conductor.play_with_beat_offset(s.play_offset)
 
 func _on_Conductor_measure(position):

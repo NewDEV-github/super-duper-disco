@@ -1,5 +1,5 @@
 extends Node2D
-
+var proto_tech_initialized = false
 var enable_combo = false
 enum MultiGameModes {
 	SeparatedNotes = 0
@@ -31,7 +31,8 @@ var grade = "NA"
 var grade_p1 = "NA"
 var grade_p2 = "NA"
 var current_game_config_path = "NA"
-
+func _ready():
+	pass
 func set_score(new):
 	score = new
 	if score > 250000:
