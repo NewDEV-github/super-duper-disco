@@ -1,4 +1,5 @@
 #include "sdk.h"
+#include "sdk_debugger.h"
 #include <algorithm>
 #include <array>
 #include <string>

@@ -10,7 +10,7 @@ var song_name = "Hill"
 var song_author = "DoS"
 var song_album = "Super Duper Disco"
 var measures = 4
-var play_offset = 8 
+var play_offset = 7.5 
 var song_file_path = "res/songs/Hill/hill.mp3"
 var notes_spawn = {
 	"36": {

@@ -3,14 +3,14 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-var initialize = true
+var initialize = false
 var end_song_position = 394
-var bpm = 140
+var bpm = 150
 var song_name = "Green Groove"
 var song_author = "DoS"
 var song_album = "Super Duper Disco"
 var measures = 4
-var play_offset = 6 
+var play_offset = 6.5
 var song_file_path = "res/songs/GreenGroove/green_groove.ogg"
 var notes_spawn = {
 	"0": {
