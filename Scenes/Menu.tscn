@@ -1,12 +1,16 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
-[ext_resource path="res://ThemeAndRelatedThings/kenneyUI-yellow.tres" type="Theme" id=2]
-[ext_resource path="res://ThemeAndRelatedThings/monka_giga_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://themes/kenvector_future.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Shaders/circle_switch.png" type="Texture" id=4]
 [ext_resource path="res://Shaders/light_mask.material" type="Material" id=5]
+[ext_resource path="res://themes/kenneyUI-yellow.tres" type="Theme" id=6]
 [ext_resource path="res://Sounds/bell_ding.ogg" type="AudioStream" id=11]
 [ext_resource path="res://Scripts/SongSelector.gd" type="Script" id=12]
+
+[sub_resource type="DynamicFont" id=3]
+size = 60
+font_data = ExtResource( 2 )
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -59,7 +63,7 @@ tracks/1/keys = {
 material = ExtResource( 5 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 2 )
+theme = ExtResource( 6 )
 script = ExtResource( 1 )
 
 [node name="Label2" type="Label" parent="."]
@@ -119,10 +123,6 @@ margin_left = -276.0
 margin_top = 15.0
 margin_right = -15.0
 margin_bottom = 102.0
-theme = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 261.0
@@ -232,7 +232,7 @@ margin_bottom = 109.0
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = SubResource( 3 )
 text = "SUPER DUPER DISCO"
 
 [node name="SongSelector" type="ItemList" parent="."]
@@ -246,7 +246,7 @@ margin_bottom = -50.0
 script = ExtResource( 12 )
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 495, 320 )
+position = Vector2( 495.23, 319.79 )
 scale = Vector2( 1e-05, 1e-05 )
 texture = ExtResource( 4 )
 mode = 3
